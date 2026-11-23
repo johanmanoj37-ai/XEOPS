@@ -59,6 +59,7 @@ const PRODUCTS: Record<ProductId, ProductConfig> = {
 export function ZeonProductClient() {
   const [activeId, setActiveId] = useState<ProductId>("zeon");
   const [direction, setDirection] = useState<number>(1);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const pinTargetRef = useRef<HTMLDivElement>(null);
@@ -66,6 +67,16 @@ export function ZeonProductClient() {
   const introContentRef = useRef<HTMLDivElement>(null);
   const orbRef = useRef<HTMLDivElement>(null);
   const swipeIndicatorRef = useRef<HTMLDivElement>(null);
+
+  // Track window scroll to guarantee indicator is only on the above screen
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 25);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const currentProduct = PRODUCTS[activeId];
   const otherId: ProductId = activeId === "zeon" ? "scopus" : "zeon";
@@ -232,21 +243,49 @@ export function ZeonProductClient() {
             end: "bottom bottom",
             scrub: 0.25,
             pin: pinTargetRef.current,
+            onUpdate: (self) => {
+              if (swipeIndicatorRef.current) {
+                if (self.progress > 0.05) {
+                  swipeIndicatorRef.current.style.opacity = "0";
+                  swipeIndicatorRef.current.style.visibility = "hidden";
+                  swipeIndicatorRef.current.style.pointerEvents = "none";
+                } else if (self.progress <= 0.02) {
+                  swipeIndicatorRef.current.style.visibility = "visible";
+                  swipeIndicatorRef.current.style.pointerEvents = "auto";
+                }
+              }
+            },
           },
         });
 
-        // 1. Initial Hero Text & Swipe Indicator fade out quickly
-        tl.to(
-          [heroContentRef.current, swipeIndicatorRef.current],
-          {
-            opacity: 0,
-            y: -30,
-            duration: 0.25,
-            ease: "power2.out",
-            pointerEvents: "none",
-          },
-          0
-        );
+        // 1. Initial Hero Text & Swipe Indicator fade out quickly (only on above screen)
+        if (heroContentRef.current) {
+          tl.to(
+            heroContentRef.current,
+            {
+              opacity: 0,
+              y: -30,
+              duration: 0.2,
+              ease: "power2.out",
+              pointerEvents: "none",
+            },
+            0
+          );
+        }
+
+        if (swipeIndicatorRef.current) {
+          tl.to(
+            swipeIndicatorRef.current,
+            {
+              opacity: 0,
+              y: -25,
+              duration: 0.18,
+              ease: "power2.out",
+              pointerEvents: "none",
+            },
+            0
+          );
+        }
 
         // 2. The active brand writing glides up and to the right into vertical alignment
         tl.to(
@@ -285,20 +324,48 @@ export function ZeonProductClient() {
             end: "bottom bottom",
             scrub: 0.25,
             pin: pinTargetRef.current,
+            onUpdate: (self) => {
+              if (swipeIndicatorRef.current) {
+                if (self.progress > 0.05) {
+                  swipeIndicatorRef.current.style.opacity = "0";
+                  swipeIndicatorRef.current.style.visibility = "hidden";
+                  swipeIndicatorRef.current.style.pointerEvents = "none";
+                } else if (self.progress <= 0.02) {
+                  swipeIndicatorRef.current.style.visibility = "visible";
+                  swipeIndicatorRef.current.style.pointerEvents = "auto";
+                }
+              }
+            },
           },
         });
 
-        tl.to(
-          [heroContentRef.current, swipeIndicatorRef.current],
-          {
-            opacity: 0,
-            y: -25,
-            duration: 0.25,
-            ease: "power2.out",
-            pointerEvents: "none",
-          },
-          0
-        );
+        if (heroContentRef.current) {
+          tl.to(
+            heroContentRef.current,
+            {
+              opacity: 0,
+              y: -25,
+              duration: 0.2,
+              ease: "power2.out",
+              pointerEvents: "none",
+            },
+            0
+          );
+        }
+
+        if (swipeIndicatorRef.current) {
+          tl.to(
+            swipeIndicatorRef.current,
+            {
+              opacity: 0,
+              y: -20,
+              duration: 0.18,
+              ease: "power2.out",
+              pointerEvents: "none",
+            },
+            0
+          );
+        }
 
         tl.to(
           orbRef.current,
@@ -522,10 +589,12 @@ export function ZeonProductClient() {
             </div>
           </div>
 
-          {/* Right Side Swipe Indicator & Arrow Button */}
+          {/* Right Side Swipe Indicator & Arrow Button: Only on Above Screen */}
           <div
             ref={swipeIndicatorRef}
-            className="pointer-events-auto absolute right-6 sm:right-10 lg:right-16 bottom-24 sm:bottom-32 lg:bottom-36 z-30 flex flex-col items-center gap-2 select-none will-change-transform"
+            className={`pointer-events-auto absolute right-6 sm:right-10 lg:right-16 bottom-24 sm:bottom-32 lg:bottom-36 z-30 flex flex-col items-center gap-2 select-none will-change-transform transition-all duration-300 ${
+              isScrolled ? "opacity-0 pointer-events-none invisible" : "opacity-100"
+            }`}
           >
             <button
               type="button"
