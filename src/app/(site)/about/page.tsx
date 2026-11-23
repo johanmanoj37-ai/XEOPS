@@ -1,150 +1,103 @@
 import type { Metadata } from "next";
-import { ABOUT_MILESTONES, SERVICES_LIST } from "@/components/xeops/xeops-data";
-import {
-  FinalCtaBanner,
-  TestimonialsSection,
-} from "@/components/xeops/HomeSections";
-import {
-  IconCpu,
-  IconGlobe,
-  IconLayers,
-} from "@/components/xeops/XeopsIcons";
 
 export const metadata: Metadata = {
-  title: "About — XEOPS",
-  description:
-    "Learn how Xeops architects calm, sub-12ms global compute systems and developer workflows.",
+  title: "About Us — XEOPS",
+  description: "Meet the Co-Founders behind Xeops.",
 };
 
-const PRINCIPLES = [
+const CO_FOUNDERS = [
   {
-    title: "Calm Determinism",
-    body: "Infrastructure should behave identically across local sandboxes and 40+ global edge nodes — free from flaky configuration drift.",
-    Icon: IconCpu,
+    name: "Johan P Manoj",
+    role: "Co-Founder",
+    email: "johanpmanoj@xeops.in",
+    initials: "JM",
   },
   {
-    title: "Restrained Precision",
-    body: "We strip away visual clutter so engineering teams see the anomaly delta and act decisively in seconds.",
-    Icon: IconLayers,
+    name: "Elsa Rose Jimmy",
+    role: "Co-Founder",
+    email: "elsarosejimmy@xeops.in",
+    initials: "EJ",
   },
   {
-    title: "Edge-First Sovereignty",
-    body: "Keep sensitive workloads close to users with strict cryptographic boundaries and multi-region mesh failover.",
-    Icon: IconGlobe,
+    name: "Goutham Krishna VV",
+    role: "Co-Founder",
+    email: "goutham.krishnavv@xeops.in",
+    initials: "GK",
   },
 ] as const;
+
+function MailIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect x="2.5" y="4" width="15" height="12" rx="2" />
+      <path d="m3.5 5.5 6.5 5 6.5-5" />
+    </svg>
+  );
+}
 
 export default function AboutPage() {
   return (
     <div className="w-full">
-      {/* Header Hero */}
-      <section className="mx-auto max-w-6xl px-5 pt-16 pb-16 sm:px-8 sm:pt-24 sm:pb-20">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#11A39F]">
-          About Xeops
-        </p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-[#0A0D0D] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.08]">
-          Built to turn complex systems into{" "}
-          <span className="xeops-gradient-teal">effortless velocity.</span>
-        </h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#4A5353] sm:text-lg">
-          Founded by distributed-systems engineers and product designers, Xeops exists to bridge raw global scale with quiet architectural clarity.
-        </p>
-
-        {/* Key Numbers Strip */}
-        <div className="mt-14 grid grid-cols-1 divide-y divide-black/[0.08] rounded-[20px] border border-black/[0.08] bg-white shadow-[0_12px_36px_rgba(0,0,0,0.06)] md:grid-cols-3 md:divide-x md:divide-y-0">
-          {ABOUT_MILESTONES.map((item, idx) => (
-            <div key={item.label} className="px-7 py-7">
-              <p
-                className={`text-3xl font-bold tracking-tight ${
-                  idx === 1
-                    ? "text-[#11A39F]"
-                    : idx === 2
-                    ? "text-[#A47936]"
-                    : "text-[#0A0D0D]"
-                }`}
-              >
-                {item.metric}
-              </p>
-              <p className="mt-2 text-sm font-medium text-[#0A0D0D]">
-                {item.label}
-              </p>
-              <p className="mt-1 text-xs text-[#727B7B]">{item.note}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Design & Engineering Philosophy */}
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
-        <div className="mb-10">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#11A39F]">
-            Core Philosophy
+      <section className="min-h-[calc(100dvh-74px-140px)] w-full px-6 pt-16 pb-24 sm:px-10 sm:pt-24 sm:pb-32 lg:px-16">
+        {/* Header Block */}
+        <div className="max-w-3xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#727B7B]">
+            Leadership
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0A0D0D]">
-            Three principles guiding every release.
-          </h2>
+          <h1 className="mt-3 text-3xl font-light tracking-tight text-[#0A0D0D] sm:text-4xl lg:text-5xl">
+            Meet our Co-Founders
+          </h1>
+          <p className="mt-4 text-sm leading-relaxed text-[#4A5353] sm:text-base">
+            The founding team leading the vision, architecture, and execution at Xeops.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          {PRINCIPLES.map(({ title, body, Icon }) => (
+        {/* 3 Co-Founders Grid */}
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
+          {CO_FOUNDERS.map((founder) => (
             <div
-              key={title}
-              className="xeops-card xeops-card-interactive p-7"
+              key={founder.email}
+              className="group relative flex flex-col justify-between rounded-[22px] border border-black/[0.08] bg-white p-7 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-black/25 hover:shadow-[0_12px_36px_rgba(0,0,0,0.08)] sm:p-8"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.08] bg-black/[0.03] text-[#11A39F]">
-                <Icon className="h-5 w-5" />
-              </span>
-              <h3 className="mt-6 text-lg font-semibold text-[#0A0D0D]">
-                {title}
-              </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-[#4A5353]">
-                {body}
-              </p>
+              <div>
+                {/* Monogram Badge */}
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-black/[0.08] bg-black/[0.03] text-base font-semibold tracking-wide text-[#0A0D0D] transition-colors duration-300 group-hover:bg-[#0A0D0D] group-hover:text-white">
+                  {founder.initials}
+                </div>
+
+                {/* Name & Role */}
+                <h2 className="mt-6 text-xl font-semibold tracking-tight text-[#0A0D0D] sm:text-2xl">
+                  {founder.name}
+                </h2>
+                <p className="mt-1 text-xs font-medium uppercase tracking-[0.16em] text-[#727B7B]">
+                  {founder.role}
+                </p>
+              </div>
+
+              {/* Email Link */}
+              <div className="mt-8 border-t border-black/[0.06] pt-5">
+                <a
+                  href={`mailto:${founder.email}`}
+                  className="inline-flex items-center gap-2.5 text-xs font-medium text-[#4A5353] transition-colors hover:text-[#0A0D0D] sm:text-sm"
+                  aria-label={`Email ${founder.name} at ${founder.email}`}
+                >
+                  <MailIcon className="h-4 w-4 shrink-0 text-[#727B7B] transition-colors group-hover:text-[#0A0D0D]" />
+                  <span className="truncate">{founder.email}</span>
+                </a>
+              </div>
             </div>
           ))}
         </div>
       </section>
-
-      {/* Services Architecture */}
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
-        <div className="rounded-[24px] border border-black/[0.08] bg-white p-7 shadow-[0_12px_36px_rgba(0,0,0,0.06)] sm:p-10">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#A47936]">
-            Managed Services &amp; Advisory
-          </p>
-          <h2 className="mt-3 text-2xl font-bold tracking-tight text-[#0A0D0D] sm:text-3xl">
-            End-to-end orchestration backed by systems architects.
-          </h2>
-
-          <div className="mt-8 divide-y divide-black/[0.08]">
-            {SERVICES_LIST.map((srv) => (
-              <div
-                key={srv.code}
-                className="flex flex-col gap-3 py-6 sm:flex-row sm:items-center sm:justify-between"
-              >
-                <div className="flex items-start gap-4">
-                  <span className="mt-1 font-mono text-xs text-[#727B7B]">
-                    {srv.code}
-                  </span>
-                  <div>
-                    <h3 className="text-base font-semibold text-[#0A0D0D]">
-                      {srv.title}
-                    </h3>
-                    <p className="mt-1 max-w-2xl text-sm text-[#4A5353]">
-                      {srv.description}
-                    </p>
-                  </div>
-                </div>
-                <span className="w-fit shrink-0 rounded-full border border-black/[0.08] bg-black/[0.03] px-3 py-1 text-xs text-[#11A39F]">
-                  {srv.tag}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <TestimonialsSection />
-      <FinalCtaBanner />
     </div>
   );
 }

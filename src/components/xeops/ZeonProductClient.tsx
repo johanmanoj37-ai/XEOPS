@@ -461,20 +461,33 @@ export function ZeonProductClient() {
                 className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-20 w-56 sm:h-24 sm:w-72 rounded-full bg-black/[0.04] blur-2xl"
               />
 
-              {/* Arrow sign on the left side with generous distance from the centered writing */}
-              <button
-                type="button"
-                onClick={toggleProduct}
-                className="group absolute right-[calc(100%+0.625rem)] sm:right-[calc(100%+2rem)] lg:right-[calc(100%+3.5rem)] top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-black/15 bg-white text-[#0A0D0D] shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all duration-300 hover:scale-110 hover:border-black hover:bg-black/5 active:scale-95 shrink-0"
-                aria-label={`Switch to ${otherProduct.displayName}`}
-                title={`Switch to ${otherProduct.displayName}`}
-              >
-                <IconArrowRight
-                  className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 ${
-                    activeId === "scopus" ? "rotate-180 group-hover:-translate-x-0.5" : "group-hover:translate-x-0.5"
+              {/* Product Switch Arrow: Right side for Zeon, Left side for Scopus */}
+              <AnimatePresence mode="wait">
+                <motion.button
+                  key={`switch-${activeId}`}
+                  type="button"
+                  onClick={toggleProduct}
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.85 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className={`group absolute top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-black/15 bg-white text-[#0A0D0D] shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all duration-300 hover:scale-110 hover:border-black hover:bg-black/5 active:scale-95 shrink-0 ${
+                    activeId === "zeon"
+                      ? "left-[calc(100%+0.625rem)] sm:left-[calc(100%+2rem)] lg:left-[calc(100%+3.5rem)]"
+                      : "right-[calc(100%+0.625rem)] sm:right-[calc(100%+2rem)] lg:right-[calc(100%+3.5rem)]"
                   }`}
-                />
-              </button>
+                  aria-label={`Switch to ${otherProduct.displayName}`}
+                  title={`Switch to ${otherProduct.displayName}`}
+                >
+                  <IconArrowRight
+                    className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 ${
+                      activeId === "scopus"
+                        ? "rotate-180 group-hover:-translate-x-0.5"
+                        : "group-hover:translate-x-0.5"
+                    }`}
+                  />
+                </motion.button>
+              </AnimatePresence>
 
               <AnimatePresence mode="wait" custom={direction}>
                 {activeId === "zeon" ? (
