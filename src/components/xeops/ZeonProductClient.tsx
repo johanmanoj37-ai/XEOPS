@@ -24,6 +24,7 @@ interface ProductConfig {
     headline: string;
     description: string;
     ctaText: string;
+    ctaHref: string;
   };
 }
 
@@ -39,6 +40,7 @@ const PRODUCTS: Record<ProductId, ProductConfig> = {
       description:
         "Zeon is a modern warehouse management solution designed to simplify inventory, orders and business operations. Track inventory, manage orders and monitor your business with real-time insights.",
       ctaText: "Discover Zeon",
+      ctaHref: "https://xeops.in",
     },
   },
   scopus: {
@@ -52,6 +54,7 @@ const PRODUCTS: Record<ProductId, ProductConfig> = {
       description:
         "SCOPUS is a smart educational document management platform designed for college students. Organize your academic documents, keep your study materials in one place, and access important resources whenever you need them.",
       ctaText: "Discover SCOPUS",
+      ctaHref: "https://github.com/johanmanoj-dev/Scopus",
     },
   },
 };
@@ -484,13 +487,15 @@ export function ZeonProductClient() {
                   {firstProduct.intro.description}
                 </p>
                 <div className="mt-3.5">
-                  <button
-                    type="button"
-                    className="group inline-flex items-center gap-2 rounded-full bg-[#0A0D0D] px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-white shadow-[0_4px_16px_rgba(0,0,0,0.14)] transition-all duration-300 hover:scale-105 hover:bg-black active:scale-95"
+                  <a
+                    href={firstProduct.intro.ctaHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pointer-events-auto group inline-flex items-center gap-2 rounded-full bg-[#0A0D0D] px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-white shadow-[0_4px_16px_rgba(0,0,0,0.14)] transition-all duration-300 hover:scale-105 hover:bg-black active:scale-95 cursor-pointer"
                   >
                     {firstProduct.intro.ctaText}
                     <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-4 sm:w-4" />
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -512,13 +517,15 @@ export function ZeonProductClient() {
                   {secondProduct.intro.description}
                 </p>
                 <div className="mt-3.5">
-                  <button
-                    type="button"
-                    className="group inline-flex items-center gap-2 rounded-full bg-[#0A0D0D] px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-white shadow-[0_4px_16px_rgba(0,0,0,0.14)] transition-all duration-300 hover:scale-105 hover:bg-black active:scale-95"
+                  <a
+                    href={secondProduct.intro.ctaHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pointer-events-auto group inline-flex items-center gap-2 rounded-full bg-[#0A0D0D] px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-white shadow-[0_4px_16px_rgba(0,0,0,0.14)] transition-all duration-300 hover:scale-105 hover:bg-black active:scale-95 cursor-pointer"
                   >
                     {secondProduct.intro.ctaText}
                     <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-4 sm:w-4" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
