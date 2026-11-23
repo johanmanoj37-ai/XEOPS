@@ -5,9 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { NAV_LINKS } from "@/components/xeops/xeops-data";
-import { useXeopsModals } from "@/components/xeops/XeopsContext";
 import {
-  IconArrowRight,
   IconClose,
   IconMenu,
   XeopsMark,
@@ -23,7 +21,6 @@ function isNavLinkActive(pathname: string, href: string): boolean {
 
 export function XeopsHeader() {
   const pathname = usePathname();
-  const { openGetStarted } = useXeopsModals();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -50,10 +47,10 @@ export function XeopsHeader() {
           </span>
         </Link>
 
-        {/* Desktop Nav Links */}
+        {/* Desktop Nav Links (Centered) */}
         <nav
           aria-label="Primary Navigation"
-          className="hidden items-center gap-8 md:flex"
+          className="hidden items-center gap-8 md:flex md:absolute md:left-1/2 md:-translate-x-1/2"
         >
           {NAV_LINKS.map((item) => {
             const isActive = isNavLinkActive(pathname, item.href);
@@ -81,23 +78,14 @@ export function XeopsHeader() {
           })}
         </nav>
 
-        {/* Right Action */}
-        <div className="flex items-center gap-3">
-          <button
-            type="button"
-            onClick={() => openGetStarted("pro")}
-            className="hidden items-center justify-center gap-2 rounded-full bg-white px-5 py-2 text-[13px] font-medium text-black transition-all hover:bg-neutral-200 active:scale-95 sm:inline-flex"
-          >
-            Get Started
-            <IconArrowRight className="h-3.5 w-3.5" />
-          </button>
-
+        {/* Mobile Menu Button */}
+        <div className="flex items-center md:hidden">
           <button
             type="button"
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileOpen}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.03] text-white transition-colors hover:border-white/25 md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.03] text-white transition-colors hover:border-white/25"
           >
             {mobileOpen ? (
               <IconClose className="h-5 w-5" />
@@ -146,17 +134,6 @@ export function XeopsHeader() {
               })}
 
               <div className="mt-3 flex flex-col gap-2.5 border-t border-white/[0.07] pt-4">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setMobileOpen(false);
-                    openGetStarted("pro");
-                  }}
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black transition-all hover:bg-neutral-200 active:scale-95"
-                >
-                  Get Started
-                  <IconArrowRight className="h-4 w-4" />
-                </button>
                 <Link
                   href="/"
                   onClick={() => setMobileOpen(false)}

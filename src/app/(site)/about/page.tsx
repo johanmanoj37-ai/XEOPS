@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { IconArrowRight } from "@/components/xeops/XeopsIcons";
 
 export const metadata: Metadata = {
   title: "About Us — XEOPS",
@@ -7,22 +8,25 @@ export const metadata: Metadata = {
 
 const CO_FOUNDERS = [
   {
+    num: "01",
     name: "Johan P Manoj",
     role: "Co-Founder",
     email: "johanpmanoj@xeops.in",
     initials: "JM",
   },
   {
-    name: "Elsa Rose Jimmy",
-    role: "Co-Founder",
-    email: "elsarosejimmy@xeops.in",
-    initials: "EJ",
-  },
-  {
+    num: "02",
     name: "Goutham Krishna VV",
     role: "Co-Founder",
     email: "goutham.krishnavv@xeops.in",
     initials: "GK",
+  },
+  {
+    num: "03",
+    name: "Elsa Rose Jimmy",
+    role: "Co-Founder",
+    email: "elsarosejimmy@xeops.in",
+    initials: "EJ",
   },
 ] as const;
 
@@ -66,32 +70,58 @@ export default function AboutPage() {
           {CO_FOUNDERS.map((founder) => (
             <div
               key={founder.email}
-              className="group relative flex flex-col justify-between rounded-[22px] border border-black/[0.08] bg-white p-7 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-black/25 hover:shadow-[0_12px_36px_rgba(0,0,0,0.08)] sm:p-8"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-[28px] border border-black/[0.08] bg-gradient-to-b from-white via-white to-[#FAFAFA] p-7 shadow-[0_4px_24px_rgba(0,0,0,0.02)] transition-all duration-300 hover:-translate-y-1.5 hover:border-black/20 hover:shadow-[0_20px_48px_-12px_rgba(0,0,0,0.08)] sm:p-8"
             >
+              {/* Subtle top specular hairline */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent"
+              />
+
+              {/* Watermark character in background */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-2 -top-4 select-none font-serif text-8xl font-light text-black/[0.025] transition-opacity duration-300 group-hover:text-black/[0.045]"
+              >
+                {founder.initials[0]}
+              </span>
+
               <div>
-                {/* Monogram Badge */}
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-black/[0.08] bg-black/[0.03] text-base font-semibold tracking-wide text-[#0A0D0D] transition-colors duration-300 group-hover:bg-[#0A0D0D] group-hover:text-white">
-                  {founder.initials}
+                {/* Top Row: Avatar & Index Number */}
+                <div className="flex items-center justify-between">
+                  <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-black/[0.08] bg-gradient-to-b from-black/[0.03] to-transparent shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] transition-all duration-300 group-hover:border-black/20 group-hover:bg-[#0A0D0D] group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.14)]">
+                    <span className="font-serif text-xl font-normal tracking-wide text-[#0A0D0D] transition-colors duration-300 group-hover:text-white">
+                      {founder.initials}
+                    </span>
+                  </div>
+
+                  <span className="font-mono text-xs font-semibold tracking-widest text-black/25 transition-colors duration-300 group-hover:text-black/50">
+                    {founder.num}
+                  </span>
                 </div>
 
                 {/* Name & Role */}
-                <h2 className="mt-6 text-xl font-semibold tracking-tight text-[#0A0D0D] sm:text-2xl">
+                <h2 className="mt-8 text-xl font-semibold tracking-tight text-[#0A0D0D] sm:text-2xl">
                   {founder.name}
                 </h2>
-                <p className="mt-1 text-xs font-medium uppercase tracking-[0.16em] text-[#727B7B]">
+                <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-full border border-black/[0.08] bg-black/[0.02] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#4A5353]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#0A0D0D]" />
                   {founder.role}
-                </p>
+                </div>
               </div>
 
-              {/* Email Link */}
-              <div className="mt-8 border-t border-black/[0.06] pt-5">
+              {/* Email Link Button */}
+              <div className="mt-10 border-t border-black/[0.06] pt-5">
                 <a
                   href={`mailto:${founder.email}`}
-                  className="inline-flex items-center gap-2.5 text-xs font-medium text-[#4A5353] transition-colors hover:text-[#0A0D0D] sm:text-sm"
+                  className="group/btn flex items-center justify-between rounded-xl border border-black/[0.08] bg-black/[0.02] px-4 py-3 text-xs font-medium text-[#4A5353] transition-all duration-300 hover:border-black hover:bg-[#0A0D0D] hover:text-white sm:text-sm"
                   aria-label={`Email ${founder.name} at ${founder.email}`}
                 >
-                  <MailIcon className="h-4 w-4 shrink-0 text-[#727B7B] transition-colors group-hover:text-[#0A0D0D]" />
-                  <span className="truncate">{founder.email}</span>
+                  <div className="flex min-w-0 items-center gap-2.5">
+                    <MailIcon className="h-4 w-4 shrink-0 text-[#727B7B] transition-colors duration-300 group-hover/btn:text-white" />
+                    <span className="truncate">{founder.email}</span>
+                  </div>
+                  <IconArrowRight className="h-3.5 w-3.5 shrink-0 text-[#727B7B] transition-all duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:text-white" />
                 </a>
               </div>
             </div>
