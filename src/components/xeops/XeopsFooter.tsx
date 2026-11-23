@@ -1,31 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { FOOTER_LINKS } from "@/components/xeops/xeops-data";
-import { useXeopsModals } from "@/components/xeops/XeopsContext";
 import {
   IconGithub,
   IconLinkedin,
-  IconXSocial,
-  IconYoutube,
   XeopsMark,
 } from "@/components/xeops/XeopsIcons";
 
 const SOCIAL_LINKS = [
-  { label: "GitHub", href: "https://github.com", Icon: IconGithub },
-  { label: "X", href: "https://x.com", Icon: IconXSocial },
-  { label: "LinkedIn", href: "https://linkedin.com", Icon: IconLinkedin },
-  { label: "YouTube", href: "https://youtube.com", Icon: IconYoutube },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/xeops", Icon: IconLinkedin },
+  { label: "GitHub", href: "https://github.com/XEOPS-in", Icon: IconGithub },
 ] as const;
 
 export function XeopsFooter() {
-  const { openLegal } = useXeopsModals();
-
   return (
     <footer className="relative z-10 border-t border-black/[0.08] bg-white">
       <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
-        {/* Top Row: Logo | Nav Links | Socials */}
-        <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+        {/* Top Row: Logo | Socials */}
+        <div className="flex items-center justify-between gap-4">
           <Link
             href="/home"
             className="flex items-center gap-2.5 text-[#0A0D0D] transition-opacity hover:opacity-85"
@@ -34,27 +26,6 @@ export function XeopsFooter() {
             <XeopsMark className="h-4 w-auto" />
             <span className="text-base font-semibold tracking-tight">Xeops</span>
           </Link>
-
-          <nav
-            aria-label="Footer Navigation"
-            className="flex flex-wrap items-center gap-x-7 gap-y-2.5"
-          >
-            {FOOTER_LINKS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-xs font-medium text-[#4A5353] transition-colors hover:text-[#0A0D0D]"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="/"
-              className="text-xs font-medium text-[#727B7B] transition-colors hover:text-[#11A39F]"
-            >
-              Replay Intro
-            </Link>
-          </nav>
 
           <div className="flex items-center gap-3.5">
             {SOCIAL_LINKS.map(({ label, href, Icon }) => (
@@ -76,20 +47,18 @@ export function XeopsFooter() {
         <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-black/[0.07] pt-7 text-xs text-[#727B7B] sm:flex-row sm:items-center">
           <p>© 2026 Xeops. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <button
-              type="button"
-              onClick={() => openLegal("privacy")}
+            <Link
+              href="/privacy"
               className="transition-colors hover:text-[#0A0D0D]"
             >
               Privacy Policy
-            </button>
-            <button
-              type="button"
-              onClick={() => openLegal("terms")}
+            </Link>
+            <Link
+              href="/terms"
               className="transition-colors hover:text-[#0A0D0D]"
             >
               Terms of Service
-            </button>
+            </Link>
           </div>
         </div>
       </div>
