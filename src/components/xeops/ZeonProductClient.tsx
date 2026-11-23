@@ -389,6 +389,22 @@ export function ZeonProductClient() {
                 </motion.h1>
               </AnimatePresence>
             </div>
+
+            <div className="mt-4 sm:mt-5 flex items-center justify-center">
+              <button
+                type="button"
+                onClick={() => {
+                  window.scrollTo({
+                    top: (containerRef.current?.offsetTop || 0) + (containerRef.current?.offsetHeight || 0) * 0.45,
+                    behavior: "smooth",
+                  });
+                }}
+                className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-[#0A0D0D] px-7 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-[0_4px_16px_rgba(0,0,0,0.18)] transition-all duration-300 hover:scale-105 hover:bg-black active:scale-95"
+              >
+                Discover {currentProduct.displayName}
+                <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </button>
+            </div>
           </div>
 
           {/* Left Introduction Section: Zeon & Scopus (Revealed on scroll) */}
@@ -408,6 +424,15 @@ export function ZeonProductClient() {
                 <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#4A5353]">
                   {PRODUCTS.zeon.intro.description}
                 </p>
+                <div className="mt-3.5">
+                  <button
+                    type="button"
+                    className="group inline-flex items-center gap-2 rounded-full bg-[#0A0D0D] px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-white shadow-[0_4px_16px_rgba(0,0,0,0.14)] transition-all duration-300 hover:scale-105 hover:bg-black active:scale-95"
+                  >
+                    {PRODUCTS.zeon.intro.ctaText}
+                    <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-4 sm:w-4" />
+                  </button>
+                </div>
               </div>
 
               {/* Line separating both */}
@@ -427,6 +452,15 @@ export function ZeonProductClient() {
                 <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#4A5353]">
                   {PRODUCTS.scopus.intro.description}
                 </p>
+                <div className="mt-3.5">
+                  <button
+                    type="button"
+                    className="group inline-flex items-center gap-2 rounded-full bg-[#0A0D0D] px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-white shadow-[0_4px_16px_rgba(0,0,0,0.14)] transition-all duration-300 hover:scale-105 hover:bg-black active:scale-95"
+                  >
+                    {PRODUCTS.scopus.intro.ctaText}
+                    <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-4 sm:w-4" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -490,7 +524,7 @@ export function ZeonProductClient() {
                     className="flex flex-col items-center justify-center gap-2 text-center"
                   >
                     <Image
-                      src="/scopus-mark.png"
+                      src="/scopus-mark-clean.png"
                       alt="Scopus"
                       width={335}
                       height={435}
