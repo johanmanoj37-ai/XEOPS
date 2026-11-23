@@ -82,6 +82,10 @@ export function ZeonProductClient() {
   const otherId: ProductId = activeId === "zeon" ? "scopus" : "zeon";
   const otherProduct = PRODUCTS[otherId];
 
+  // Primary product matches active view; secondary is the other product
+  const firstProduct = activeId === "scopus" ? PRODUCTS.scopus : PRODUCTS.zeon;
+  const secondProduct = activeId === "scopus" ? PRODUCTS.zeon : PRODUCTS.scopus;
+
   const selectProduct = useCallback((id: ProductId) => {
     setActiveId((prev) => {
       if (prev === id) return prev;
@@ -111,14 +115,16 @@ export function ZeonProductClient() {
     let lastWheelTime = 0;
     const WHEEL_COOLDOWN = 350; // ms to avoid duplicate triggers on momentum scroll
 
-    // 1. Touch Gestures (Mobile & Tablet Swipe)
+    // 1. Touch Gestures (Mobile & Tablet Swipe) - active only on above screen
     const handleTouchStart = (e: TouchEvent) => {
+      if (window.scrollY > 25) return;
       if (e.touches.length !== 1) return;
       touchStartX = e.touches[0].clientX;
       touchStartY = e.touches[0].clientY;
     };
 
     const handleTouchEnd = (e: TouchEvent) => {
+      if (window.scrollY > 25) return;
       if (e.changedTouches.length === 0) return;
       const diffX = e.changedTouches[0].clientX - touchStartX;
       const diffY = e.changedTouches[0].clientY - touchStartY;
@@ -135,8 +141,9 @@ export function ZeonProductClient() {
       }
     };
 
-    // 2. Mouse / Pointer Drag (Desktop Click & Drag)
+    // 2. Mouse / Pointer Drag (Desktop Click & Drag) - active only on above screen
     const handlePointerDown = (e: PointerEvent) => {
+      if (window.scrollY > 25) return;
       if ((e.target as HTMLElement)?.closest("button, a, input, textarea")) return;
       isDragging = true;
       dragStartX = e.clientX;
@@ -178,8 +185,9 @@ export function ZeonProductClient() {
       isDragging = false;
     };
 
-    // 3. Wheel Gestures (Trackpad / Horizontal Mouse Scroll)
+    // 3. Wheel Gestures (Trackpad / Horizontal Mouse Scroll) - active only on above screen
     const handleWheel = (e: WheelEvent) => {
+      if (window.scrollY > 25) return;
       const isHorizontal = Math.abs(e.deltaX) > 12 && Math.abs(e.deltaX) > Math.abs(e.deltaY);
       const isShiftWheel = e.shiftKey && Math.abs(e.deltaY) > 12;
 
@@ -199,8 +207,9 @@ export function ZeonProductClient() {
       }
     };
 
-    // 4. Keyboard Navigation (Left / Right Arrow Keys)
+    // 4. Keyboard Navigation (Left / Right Arrow Keys) - active only on above screen
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (window.scrollY > 25) return;
       if ((e.target as HTMLElement)?.closest("input, textarea, select")) return;
       if (e.key === "ArrowLeft") {
         selectProduct("zeon");
@@ -300,13 +309,12 @@ export function ZeonProductClient() {
           0
         );
 
-        // 3. 'MEET [PRODUCT]' Content glides in swiftly on the left
+        // 3. 'MEET [PRODUCT]' Content fades in cleanly (no left/right transition)
         tl.fromTo(
           introContentRef.current,
-          { opacity: 0, x: -30, pointerEvents: "none" },
+          { opacity: 0, pointerEvents: "none" },
           {
             opacity: 1,
-            x: 0,
             pointerEvents: "auto",
             duration: 0.45,
             ease: "power2.out",
@@ -380,10 +388,9 @@ export function ZeonProductClient() {
 
         tl.fromTo(
           introContentRef.current,
-          { opacity: 0, y: 25, pointerEvents: "none" },
+          { opacity: 0, pointerEvents: "none" },
           {
             opacity: 1,
-            y: 0,
             pointerEvents: "auto",
             duration: 0.45,
             ease: "power2.out",
@@ -465,23 +472,23 @@ export function ZeonProductClient() {
             className="pointer-events-none absolute left-6 sm:left-10 lg:left-16 xl:left-24 top-1/2 -translate-y-1/2 z-30 max-w-lg opacity-0 will-change-transform max-h-[calc(100dvh-100px)] overflow-y-auto"
           >
             <div className="flex flex-col gap-4 sm:gap-5 py-2">
-              {/* ── Zeon About Block ── */}
+              {/* ── Primary Product Block (Scopus first on Scopus, Zeon first on Zeon) ── */}
               <div>
                 <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.26em] text-[#0A0D0D]">
-                  {PRODUCTS.zeon.intro.badge}
+                  {firstProduct.intro.badge}
                 </p>
                 <h2 className="mt-1.5 text-xl sm:text-2xl lg:text-[1.85rem] font-bold tracking-tight text-[#0A0D0D] leading-[1.2]">
-                  {PRODUCTS.zeon.intro.headline}
+                  {firstProduct.intro.headline}
                 </h2>
                 <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#4A5353]">
-                  {PRODUCTS.zeon.intro.description}
+                  {firstProduct.intro.description}
                 </p>
                 <div className="mt-3.5">
                   <button
                     type="button"
                     className="group inline-flex items-center gap-2 rounded-full bg-[#0A0D0D] px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-white shadow-[0_4px_16px_rgba(0,0,0,0.14)] transition-all duration-300 hover:scale-105 hover:bg-black active:scale-95"
                   >
-                    {PRODUCTS.zeon.intro.ctaText}
+                    {firstProduct.intro.ctaText}
                     <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-4 sm:w-4" />
                   </button>
                 </div>
@@ -493,23 +500,23 @@ export function ZeonProductClient() {
                 className="w-full border-t border-black/[0.12] my-1 sm:my-2"
               />
 
-              {/* ── Scopus About Block ── */}
+              {/* ── Secondary Product Block (Zeon second on Scopus, Scopus second on Zeon) ── */}
               <div>
                 <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.26em] text-[#0A0D0D]">
-                  {PRODUCTS.scopus.intro.badge}
+                  {secondProduct.intro.badge}
                 </p>
                 <h2 className="mt-1.5 text-xl sm:text-2xl lg:text-[1.85rem] font-bold tracking-tight text-[#0A0D0D] leading-[1.2]">
-                  {PRODUCTS.scopus.intro.headline}
+                  {secondProduct.intro.headline}
                 </h2>
                 <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#4A5353]">
-                  {PRODUCTS.scopus.intro.description}
+                  {secondProduct.intro.description}
                 </p>
                 <div className="mt-3.5">
                   <button
                     type="button"
                     className="group inline-flex items-center gap-2 rounded-full bg-[#0A0D0D] px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-white shadow-[0_4px_16px_rgba(0,0,0,0.14)] transition-all duration-300 hover:scale-105 hover:bg-black active:scale-95"
                   >
-                    {PRODUCTS.scopus.intro.ctaText}
+                    {secondProduct.intro.ctaText}
                     <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-4 sm:w-4" />
                   </button>
                 </div>
@@ -521,18 +528,24 @@ export function ZeonProductClient() {
           <div className="relative mt-auto flex flex-col items-center justify-end overflow-visible pb-24 sm:pb-32 lg:pb-36">
             <div
               ref={orbRef}
-              onClick={toggleProduct}
+              onClick={() => {
+                if (isScrolled) return;
+                toggleProduct();
+              }}
               role="button"
-              tabIndex={0}
+              tabIndex={isScrolled ? -1 : 0}
               onKeyDown={(e) => {
+                if (isScrolled) return;
                 if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
                   toggleProduct();
                 }
               }}
-              className="relative flex items-center justify-center shrink-0 will-change-transform select-none cursor-pointer"
-              aria-label={`Switch to ${otherProduct.displayName}`}
-              title={`Click or swipe to switch to ${otherProduct.displayName}`}
+              className={`relative flex items-center justify-center shrink-0 will-change-transform select-none ${
+                isScrolled ? "cursor-default" : "cursor-pointer"
+              }`}
+              aria-label={isScrolled ? otherProduct.displayName : `Switch to ${otherProduct.displayName}`}
+              title={isScrolled ? otherProduct.displayName : `Click or swipe to switch to ${otherProduct.displayName}`}
             >
               {/* Subtle ambient back-glow aura highlighting the active mark (Monochrome) */}
               <div
@@ -545,9 +558,9 @@ export function ZeonProductClient() {
                   <motion.div
                     key="zeon-writing"
                     custom={direction}
-                    initial={{ opacity: 0, x: direction * 50 }}
+                    initial={{ opacity: 0, x: isScrolled ? 0 : direction * 50 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -direction * 50 }}
+                    exit={{ opacity: 0, x: isScrolled ? 0 : -direction * 50 }}
                     transition={{ duration: 0.35, ease: "easeInOut" }}
                     className="flex items-center justify-center text-center"
                   >
@@ -565,9 +578,9 @@ export function ZeonProductClient() {
                   <motion.div
                     key="scopus-writing"
                     custom={direction}
-                    initial={{ opacity: 0, x: direction * 50 }}
+                    initial={{ opacity: 0, x: isScrolled ? 0 : direction * 50 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -direction * 50 }}
+                    exit={{ opacity: 0, x: isScrolled ? 0 : -direction * 50 }}
                     transition={{ duration: 0.35, ease: "easeInOut" }}
                     className="flex flex-col items-center justify-center gap-2 text-center"
                   >
