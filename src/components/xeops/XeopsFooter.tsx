@@ -50,7 +50,7 @@ export function XeopsFooter() {
             ))}
             <Link
               href="/"
-              className="text-xs font-medium text-[#727B7B] transition-colors hover:text-[#11A39F]"
+              className="text-xs font-medium text-[#727B7B] transition-colors hover:text-[#0A0D0D]"
             >
               Replay Intro
             </Link>
