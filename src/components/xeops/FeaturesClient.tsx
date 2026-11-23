@@ -51,14 +51,14 @@ export function FeaturesClient() {
       {/* Header */}
       <section className="mx-auto max-w-6xl px-5 pt-16 pb-12 sm:px-8 sm:pt-24">
         <div className="max-w-3xl">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#20C6C2]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#11A39F]">
             Platform Capabilities
           </p>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-[#F2F3F3] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.08]">
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-[#0A0D0D] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.08]">
             Everything you need to ship{" "}
             <span className="xeops-gradient-teal">with clarity.</span>
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#A3AAAA]">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#4A5353]">
             Explore the architectural guarantees and capabilities powering modern Xeops deployments.
           </p>
 
@@ -76,7 +76,7 @@ export function FeaturesClient() {
               onClick={openDemo}
               className="xeops-btn-secondary px-6 py-3 text-sm"
             >
-              <IconPlay className="h-3.5 w-3.5 text-[#A3AAAA]" />
+              <IconPlay className="h-3.5 w-3.5 text-[#4A5353]" />
               Interactive Tour
             </button>
           </div>
@@ -89,14 +89,14 @@ export function FeaturesClient() {
           {CAPABILITY_DETAILS.map(({ id, title, detail, Icon }) => (
             <div key={id} className="xeops-card xeops-card-interactive p-7">
               <div className="flex items-center gap-3.5">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-[#20C6C2]/10 text-[#65D9D0]">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.08] bg-black/[0.03] text-[#11A39F]">
                   <Icon className="h-5 w-5" />
                 </span>
-                <h2 className="text-lg font-semibold text-[#F2F3F3]">
+                <h2 className="text-lg font-semibold text-[#0A0D0D]">
                   {title}
                 </h2>
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-[#A3AAAA]">
+              <p className="mt-4 text-sm leading-relaxed text-[#4A5353]">
                 {detail}
               </p>
             </div>

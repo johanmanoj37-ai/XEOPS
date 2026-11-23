@@ -2,17 +2,17 @@
    Root `/` opening animation and global styles stay untouched. */
 
 .xeops-site {
-  --xeops-bg-main: #090B0B;
-  --xeops-bg-secondary: #101313;
-  --xeops-bg-card: #171A1A;
-  --xeops-bg-elevated: #202424;
-  --xeops-text-primary: #F2F3F3;
-  --xeops-text-secondary: #A3AAAA;
-  --xeops-text-muted: #737C7C;
-  --xeops-accent: #20C6C2;
-  --xeops-accent-soft: #65D9D0;
-  --xeops-amber: #C49A58;
-  --xeops-border: rgba(255, 255, 255, 0.08);
+  --xeops-bg-main: #FFFFFF;
+  --xeops-bg-secondary: #F8F9FA;
+  --xeops-bg-card: #FFFFFF;
+  --xeops-bg-elevated: #F1F3F3;
+  --xeops-text-primary: #0A0D0D;
+  --xeops-text-secondary: #4A5353;
+  --xeops-text-muted: #727B7B;
+  --xeops-accent: #11A39F;
+  --xeops-accent-soft: #20C6C2;
+  --xeops-amber: #A47936;
+  --xeops-border: rgba(0, 0, 0, 0.08);
 
   position: relative;
   min-height: 100dvh;
@@ -23,24 +23,26 @@
 }
 
 .xeops-site ::selection {
-  background-color: rgba(32, 198, 194, 0.28);
-  color: #F2F3F3;
+  background-color: rgba(32, 198, 194, 0.25);
+  color: #0A0D0D;
 }
 
 /* Smooth scrolling while inside the Xeops site routes */
-html:has(.xeops-site) {
+html:has(.xeops-site),
+body:has(.xeops-site) {
   scroll-behavior: smooth;
-  background-color: #090B0B;
+  background-color: #FFFFFF;
+  color: #0A0D0D;
 }
 
-/* Atmospheric dark charcoal backdrop with subtle teal corners & faint warm amber depth */
+/* Atmospheric luminous white backdrop with subtle teal corners & faint warm amber depth */
 .xeops-atmosphere {
   background:
-    radial-gradient(52% 42% at 84% 16%, rgba(32, 198, 194, 0.13) 0%, rgba(32, 198, 194, 0.03) 48%, transparent 74%),
-    radial-gradient(46% 36% at 6% 4%, rgba(32, 198, 194, 0.075) 0%, transparent 68%),
-    radial-gradient(44% 38% at 72% 46%, rgba(196, 154, 88, 0.065) 0%, rgba(196, 154, 88, 0.015) 52%, transparent 76%),
-    radial-gradient(50% 40% at 14% 88%, rgba(32, 198, 194, 0.055) 0%, transparent 72%),
-    linear-gradient(180deg, #090B0B 0%, #0D1010 52%, #090B0B 100%);
+    radial-gradient(52% 42% at 84% 16%, rgba(32, 198, 194, 0.07) 0%, rgba(32, 198, 194, 0.015) 48%, transparent 74%),
+    radial-gradient(46% 36% at 6% 4%, rgba(32, 198, 194, 0.045) 0%, transparent 68%),
+    radial-gradient(44% 38% at 72% 46%, rgba(196, 154, 88, 0.045) 0%, rgba(196, 154, 88, 0.01) 52%, transparent 76%),
+    radial-gradient(50% 40% at 14% 88%, rgba(32, 198, 194, 0.035) 0%, transparent 72%),
+    linear-gradient(180deg, #FFFFFF 0%, #FAFCFC 52%, #FFFFFF 100%);
 }
 
 /* Highlight words in teal gradient */
@@ -82,17 +84,17 @@ html:has(.xeops-site) {
   transform: translateY(0);
 }
 
-/* Secondary button — transparent bg, subtle grey border, soft surface shift on hover */
+/* Secondary button — subtle border, soft surface shift on hover */
 .xeops-btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.02);
-  color: #F2F3F3;
+  background: rgba(0, 0, 0, 0.03);
+  color: #0A0D0D;
   font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
     background-color 0.25s ease,
     border-color 0.25s ease;
@@ -100,29 +102,27 @@ html:has(.xeops-site) {
 
 .xeops-btn-secondary:hover {
   transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.26);
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.24);
 }
 
-/* Charcoal translucent card container */
+/* Elevated clean card container */
 .xeops-card {
-  background: linear-gradient(180deg, rgba(25, 29, 29, 0.88) 0%, rgba(20, 23, 23, 0.92) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 20px;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 20px 50px rgba(0, 0, 0, 0.45);
+    0 4px 12px -2px rgba(0, 0, 0, 0.03),
+    0 16px 36px -4px rgba(0, 0, 0, 0.06);
   transition: border-color 0.28s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
 }
 
 .xeops-card-interactive:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(0, 0, 0, 0.16);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 26px 60px rgba(0, 0, 0, 0.56);
+    0 8px 16px -2px rgba(0, 0, 0, 0.05),
+    0 24px 50px -4px rgba(0, 0, 0, 0.09);
 }
 
 /* Perspective wrapper for angled tablet product mockup */

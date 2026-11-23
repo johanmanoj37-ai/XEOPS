@@ -46,7 +46,7 @@ export function ProductShowcaseTablet() {
         className="pointer-events-none absolute -top-6 right-8 h-52 w-60 rounded-full bg-[#20C6C2]/14 blur-[80px]"
       />
 
-      <div className="xeops-tablet-frame relative overflow-hidden rounded-[22px] border border-white/[0.12] bg-[#0D1010]/95 shadow-[0_32px_90px_rgba(0,0,0,0.72)] backdrop-blur-xl">
+      <div className="xeops-tablet-frame relative overflow-hidden rounded-[22px] border border-black/[0.12] bg-[#0D1010]/95 shadow-[0_24px_70px_rgba(0,0,0,0.2)] backdrop-blur-xl">
         {/* Top sheen line */}
         <div
           aria-hidden="true"

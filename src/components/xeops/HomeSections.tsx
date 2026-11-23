@@ -31,18 +31,18 @@ export function AboutServicesSection() {
         {/* Editorial Thesis */}
         <div className="flex flex-col justify-between lg:col-span-5">
           <div>
-            <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#20C6C2]">
-              <span className="h-px w-5 bg-[#20C6C2]/60" aria-hidden="true" />
+            <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#11A39F]">
+              <span className="h-px w-5 bg-[#11A39F]/60" aria-hidden="true" />
               About Xeops
             </p>
             <h2
               id="about-heading"
-              className="mt-4 text-3xl font-bold tracking-tight text-[#F2F3F3] sm:text-4xl"
+              className="mt-4 text-3xl font-bold tracking-tight text-[#0A0D0D] sm:text-4xl"
             >
               Architecture built for teams that ship{" "}
               <span className="xeops-gradient-teal">without friction.</span>
             </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-[#A3AAAA]">
+            <p className="mt-5 text-[15px] leading-relaxed text-[#4A5353]">
               Xeops replaces sprawling infrastructure glue with one coherent runtime. Every primitive — compute, routing, identity, and observability — is unified behind a calm interface designed for speed and clarity.
             </p>
             <div className="mt-7">
@@ -56,50 +56,50 @@ export function AboutServicesSection() {
             </div>
           </div>
 
-          <div className="mt-12 grid grid-cols-3 gap-4 border-t border-white/[0.08] pt-7">
+          <div className="mt-12 grid grid-cols-3 gap-4 border-t border-black/[0.08] pt-7">
             <div>
-              <p className="text-xl font-bold tracking-tight text-[#F2F3F3] sm:text-2xl">
+              <p className="text-xl font-bold tracking-tight text-[#0A0D0D] sm:text-2xl">
                 &lt; 12ms
               </p>
-              <p className="mt-1 text-xs text-[#737C7C]">Edge decision time</p>
+              <p className="mt-1 text-xs text-[#727B7B]">Edge decision time</p>
             </div>
             <div>
-              <p className="text-xl font-bold tracking-tight text-[#65D9D0] sm:text-2xl">
+              <p className="text-xl font-bold tracking-tight text-[#11A39F] sm:text-2xl">
                 99.99%
               </p>
-              <p className="mt-1 text-xs text-[#737C7C]">Verified SLA uptime</p>
+              <p className="mt-1 text-xs text-[#727B7B]">Verified SLA uptime</p>
             </div>
             <div>
-              <p className="text-xl font-bold tracking-tight text-[#C49A58] sm:text-2xl">
+              <p className="text-xl font-bold tracking-tight text-[#A47936] sm:text-2xl">
                 40+
               </p>
-              <p className="mt-1 text-xs text-[#737C7C]">Global POP nodes</p>
+              <p className="mt-1 text-xs text-[#727B7B]">Global POP nodes</p>
             </div>
           </div>
         </div>
 
         {/* Core Services List (Editorial stacked rows rather than uniform boxes) */}
         <div className="lg:col-span-7">
-          <div className="divide-y divide-white/[0.08] rounded-[22px] border border-white/[0.08] bg-[#101313]/75 px-6 sm:px-8">
+          <div className="divide-y divide-black/[0.08] rounded-[22px] border border-black/[0.08] bg-white shadow-[0_12px_36px_rgba(0,0,0,0.06)] px-6 sm:px-8">
             {SERVICES_LIST.map((service) => (
               <div
                 key={service.code}
                 className="group flex flex-col gap-3 py-7 sm:flex-row sm:items-start sm:justify-between sm:gap-6"
               >
                 <div className="flex items-start gap-5">
-                  <span className="mt-1 font-mono text-xs tracking-[0.2em] text-[#737C7C] transition-colors group-hover:text-[#20C6C2]">
+                  <span className="mt-1 font-mono text-xs tracking-[0.2em] text-[#727B7B] transition-colors group-hover:text-[#11A39F]">
                     {service.code}
                   </span>
                   <div>
-                    <h3 className="text-lg font-semibold tracking-tight text-[#F2F3F3]">
+                    <h3 className="text-lg font-semibold tracking-tight text-[#0A0D0D]">
                       {service.title}
                     </h3>
-                    <p className="mt-2 max-w-md text-sm leading-relaxed text-[#A3AAAA]">
+                    <p className="mt-2 max-w-md text-sm leading-relaxed text-[#4A5353]">
                       {service.description}
                     </p>
                   </div>
                 </div>
-                <span className="inline-flex w-fit shrink-0 rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1 text-[11px] font-medium text-[#A3AAAA] transition-colors group-hover:border-[#20C6C2]/30 group-hover:text-[#65D9D0]">
+                <span className="inline-flex w-fit shrink-0 rounded-full border border-black/[0.08] bg-black/[0.03] px-3 py-1 text-[11px] font-medium text-[#4A5353] transition-colors group-hover:border-[#11A39F]/30 group-hover:text-[#11A39F]">
                   {service.tag}
                 </span>
               </div>
@@ -121,13 +121,13 @@ export function IntegrationsSection() {
     >
       <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
         <div>
-          <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#20C6C2]">
-            <span className="h-px w-5 bg-[#20C6C2]/60" aria-hidden="true" />
+          <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#11A39F]">
+            <span className="h-px w-5 bg-[#11A39F]/60" aria-hidden="true" />
             Integrations
           </p>
           <h2
             id="integrations-heading"
-            className="mt-3 text-3xl font-bold tracking-tight text-[#F2F3F3] sm:text-4xl"
+            className="mt-3 text-3xl font-bold tracking-tight text-[#0A0D0D] sm:text-4xl"
           >
             Connects effortlessly with your stack.
           </h2>
@@ -135,7 +135,7 @@ export function IntegrationsSection() {
 
         <Link
           href="/features"
-          className="text-sm font-medium text-[#A3AAAA] transition-colors hover:text-[#65D9D0]"
+          className="text-sm font-medium text-[#4A5353] transition-colors hover:text-[#11A39F]"
         >
           Explore features →
         </Link>
@@ -148,14 +148,14 @@ export function IntegrationsSection() {
             className="xeops-card xeops-card-interactive flex flex-col justify-between gap-4 p-5"
           >
             <div className="flex items-center justify-between gap-2">
-              <span className="text-sm font-semibold text-[#F2F3F3]">
+              <span className="text-sm font-semibold text-[#0A0D0D]">
                 {item.name}
               </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#20C6C2]">
+              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#11A39F]">
                 {item.latency}
               </span>
             </div>
-            <p className="text-xs leading-relaxed text-[#A3AAAA]">
+            <p className="text-xs leading-relaxed text-[#4A5353]">
               {item.detail}
             </p>
           </div>
@@ -178,18 +178,18 @@ export function PricingSection({ compact = false }: { compact?: boolean }) {
     >
       <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
         <div>
-          <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#20C6C2]">
-            <span className="h-px w-5 bg-[#20C6C2]/60" aria-hidden="true" />
+          <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#11A39F]">
+            <span className="h-px w-5 bg-[#11A39F]/60" aria-hidden="true" />
             Transparent Pricing
           </p>
           <h2
             id="pricing-heading"
-            className="mt-3 text-3xl font-bold tracking-tight text-[#F2F3F3] sm:text-4xl"
+            className="mt-3 text-3xl font-bold tracking-tight text-[#0A0D0D] sm:text-4xl"
           >
             Start simple. Scale globally.
           </h2>
           {!compact ? (
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#A3AAAA]">
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#4A5353]">
               Predictable tiering built for independent prototypes and high-throughput enterprise workloads alike.
             </p>
           ) : null}
@@ -199,15 +199,15 @@ export function PricingSection({ compact = false }: { compact?: boolean }) {
         <div
           role="group"
           aria-label="Billing interval"
-          className="inline-flex items-center rounded-full border border-white/[0.08] bg-[#101313] p-1"
+          className="inline-flex items-center rounded-full border border-black/[0.08] bg-black/[0.04] p-1"
         >
           <button
             type="button"
             onClick={() => setAnnual(false)}
             className={`rounded-full px-4 py-1.5 text-xs font-medium transition-colors ${
               !annual
-                ? "bg-[#202424] text-[#F2F3F3]"
-                : "text-[#737C7C] hover:text-[#A3AAAA]"
+                ? "bg-white text-[#0A0D0D] shadow-sm"
+                : "text-[#727B7B] hover:text-[#0A0D0D]"
             }`}
           >
             Monthly
@@ -217,12 +217,12 @@ export function PricingSection({ compact = false }: { compact?: boolean }) {
             onClick={() => setAnnual(true)}
             className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-medium transition-colors ${
               annual
-                ? "bg-[#202424] text-[#F2F3F3]"
-                : "text-[#737C7C] hover:text-[#A3AAAA]"
+                ? "bg-white text-[#0A0D0D] shadow-sm"
+                : "text-[#727B7B] hover:text-[#0A0D0D]"
             }`}
           >
             <span>Annual</span>
-            <span className="text-[10px] font-semibold text-[#65D9D0]">-20%</span>
+            <span className="text-[10px] font-semibold text-[#11A39F]">-20%</span>
           </button>
         </div>
       </div>
@@ -238,21 +238,21 @@ export function PricingSection({ compact = false }: { compact?: boolean }) {
               key={tier.id}
               className={`relative flex flex-col justify-between rounded-[22px] border p-7 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 ${
                 isPro
-                  ? "border-[#20C6C2]/35 bg-gradient-to-b from-[#172222]/90 via-[#141717]/95 to-[#121515]/95 shadow-[0_24px_70px_rgba(0,0,0,0.6),0_0_40px_rgba(32,198,194,0.08)]"
-                  : "border-white/[0.08] bg-[#141717]/90 shadow-[0_20px_50px_rgba(0,0,0,0.45)]"
+                  ? "border-[#11A39F]/40 bg-gradient-to-b from-white via-[#F4FBFA] to-white shadow-[0_16px_40px_rgba(17,163,159,0.12)]"
+                  : "border-black/[0.08] bg-white shadow-[0_12px_36px_rgba(0,0,0,0.06)]"
               }`}
             >
               <div>
                 <div className="flex items-center justify-between gap-2">
-                  <h3 className="text-lg font-semibold text-[#F2F3F3]">
+                  <h3 className="text-lg font-semibold text-[#0A0D0D]">
                     {tier.name}
                   </h3>
                   {tier.badge ? (
                     <span
                       className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${
                         isEnterprise
-                          ? "border border-[#C49A58]/30 bg-[#C49A58]/10 text-[#C49A58]"
-                          : "border border-[#20C6C2]/35 bg-[#20C6C2]/15 text-[#65D9D0]"
+                          ? "border border-[#A47936]/30 bg-[#A47936]/10 text-[#A47936]"
+                          : "border border-[#11A39F]/35 bg-[#11A39F]/10 text-[#11A39F]"
                       }`}
                     >
                       {tier.badge}
@@ -260,26 +260,26 @@ export function PricingSection({ compact = false }: { compact?: boolean }) {
                   ) : null}
                 </div>
 
-                <p className="mt-2 text-xs leading-relaxed text-[#A3AAAA]">
+                <p className="mt-2 text-xs leading-relaxed text-[#4A5353]">
                   {tier.tagline}
                 </p>
 
-                <div className="mt-6 flex items-baseline gap-1.5 border-b border-white/[0.07] pb-6">
-                  <span className="text-4xl font-bold tracking-tight text-[#F2F3F3]">
+                <div className="mt-6 flex items-baseline gap-1.5 border-b border-black/[0.07] pb-6">
+                  <span className="text-4xl font-bold tracking-tight text-[#0A0D0D]">
                     {price}
                   </span>
-                  <span className="text-xs text-[#737C7C]">{tier.unit}</span>
+                  <span className="text-xs text-[#727B7B]">{tier.unit}</span>
                 </div>
 
                 <ul className="mt-6 space-y-3">
                   {tier.features.map((feat) => (
                     <li
                       key={feat}
-                      className="flex items-start gap-2.5 text-sm text-[#A3AAAA]"
+                      className="flex items-start gap-2.5 text-sm text-[#4A5353]"
                     >
                       <IconCheck
                         className={`mt-0.5 h-4 w-4 shrink-0 ${
-                          isPro ? "text-[#20C6C2]" : "text-[#65D9D0]/75"
+                          isPro ? "text-[#11A39F]" : "text-[#11A39F]/75"
                         }`}
                       />
                       <span>{feat}</span>
@@ -328,13 +328,13 @@ export function TestimonialsSection() {
       <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
         {/* Left Copy */}
         <div className="lg:col-span-5">
-          <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#20C6C2]">
-            <span className="h-px w-6 bg-[#20C6C2]/65" aria-hidden="true" />
+          <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#11A39F]">
+            <span className="h-px w-6 bg-[#11A39F]/65" aria-hidden="true" />
             Trusted by Thousands
           </p>
           <h2
             id="testimonials-heading"
-            className="mt-4 text-3xl font-bold leading-tight tracking-tight text-[#F2F3F3] sm:text-4xl"
+            className="mt-4 text-3xl font-bold leading-tight tracking-tight text-[#0A0D0D] sm:text-4xl"
           >
             Loved by creators, businesses and teams.
           </h2>
@@ -343,7 +343,7 @@ export function TestimonialsSection() {
         {/* Right Carousel Card + Arrows */}
         <div className="lg:col-span-7">
           <div className="flex items-center gap-4">
-            <div className="xeops-card flex-1 p-6 sm:p-7">
+            <div className="xeops-card flex-1 p-6 sm:p-7 bg-white border border-black/[0.08] shadow-[0_12px_36px_rgba(0,0,0,0.06)]">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={current.id}
@@ -356,26 +356,26 @@ export function TestimonialsSection() {
                   {/* Stylised clean portrait badge */}
                   <div
                     aria-hidden="true"
-                    className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full border text-sm font-semibold tracking-wider text-[#F2F3F3] ${
+                    className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full border text-sm font-semibold tracking-wider ${
                       current.accentHue === "amber"
-                        ? "border-[#C49A58]/40 bg-gradient-to-br from-[#2B2318] to-[#131515]"
+                        ? "border-[#A47936]/40 bg-gradient-to-br from-[#FDF9F0] to-[#F7F2E7] text-[#A47936]"
                         : current.accentHue === "teal"
-                        ? "border-[#20C6C2]/40 bg-gradient-to-br from-[#162828] to-[#121515]"
-                        : "border-white/20 bg-gradient-to-br from-[#202424] to-[#121515]"
+                        ? "border-[#11A39F]/40 bg-gradient-to-br from-[#EBF9F8] to-[#E0F5F4] text-[#11A39F]"
+                        : "border-black/15 bg-black/[0.04] text-[#0A0D0D]"
                     }`}
                   >
                     {current.initials}
                   </div>
 
                   <div>
-                    <blockquote className="text-[15px] leading-relaxed text-[#F2F3F3]">
+                    <blockquote className="text-[15px] leading-relaxed text-[#0A0D0D]">
                       {current.quote}
                     </blockquote>
                     <div className="mt-4">
-                      <p className="text-xs font-semibold text-[#F2F3F3]">
+                      <p className="text-xs font-semibold text-[#0A0D0D]">
                         {current.author}
                       </p>
-                      <p className="text-[11px] text-[#737C7C]">
+                      <p className="text-[11px] text-[#727B7B]">
                         {current.role}
                       </p>
                     </div>
@@ -391,7 +391,7 @@ export function TestimonialsSection() {
                   type="button"
                   onClick={handlePrev}
                   aria-label="Previous testimonial"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.1] bg-[#141717] text-[#A3AAAA] transition-colors hover:border-white/25 hover:text-[#F2F3F3]"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-black/[0.1] bg-white text-[#4A5353] shadow-sm transition-colors hover:border-black/25 hover:text-[#0A0D0D]"
                 >
                   <IconChevronLeft className="h-4 w-4" />
                 </button>
@@ -399,7 +399,7 @@ export function TestimonialsSection() {
                   type="button"
                   onClick={handleNext}
                   aria-label="Next testimonial"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.1] bg-[#141717] text-[#A3AAAA] transition-colors hover:border-white/25 hover:text-[#F2F3F3]"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-black/[0.1] bg-white text-[#4A5353] shadow-sm transition-colors hover:border-black/25 hover:text-[#0A0D0D]"
                 >
                   <IconChevronRight className="h-4 w-4" />
                 </button>
@@ -414,7 +414,7 @@ export function TestimonialsSection() {
                 type="button"
                 onClick={handlePrev}
                 aria-label="Previous testimonial"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.1] bg-[#141717] text-[#A3AAAA]"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-black/[0.1] bg-white text-[#4A5353]"
               >
                 <IconChevronLeft className="h-4 w-4" />
               </button>
@@ -422,7 +422,7 @@ export function TestimonialsSection() {
                 type="button"
                 onClick={handleNext}
                 aria-label="Next testimonial"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.1] bg-[#141717] text-[#A3AAAA]"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-black/[0.1] bg-white text-[#4A5353]"
               >
                 <IconChevronRight className="h-4 w-4" />
               </button>
@@ -441,8 +441,8 @@ export function TestimonialsSection() {
                     onClick={() => setIndex(i)}
                     className={`h-1.5 rounded-full transition-all ${
                       active
-                        ? "w-5 bg-[#20C6C2]"
-                        : "w-1.5 bg-white/20 hover:bg-white/40"
+                        ? "w-5 bg-[#11A39F]"
+                        : "w-1.5 bg-black/20 hover:bg-black/40"
                     }`}
                   />
                 );
@@ -466,12 +466,12 @@ export function FaqSection() {
       className="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-24"
     >
       <div className="text-center">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#20C6C2]">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#11A39F]">
           FAQ
         </p>
         <h2
           id="faq-heading"
-          className="mt-3 text-3xl font-bold tracking-tight text-[#F2F3F3] sm:text-4xl"
+          className="mt-3 text-3xl font-bold tracking-tight text-[#0A0D0D] sm:text-4xl"
         >
           Common questions, direct answers.
         </h2>
@@ -483,7 +483,7 @@ export function FaqSection() {
           return (
             <div
               key={item.id}
-              className="rounded-2xl border border-white/[0.08] bg-[#141717]/80 transition-colors hover:border-white/[0.14]"
+              className="rounded-2xl border border-black/[0.08] bg-white shadow-sm transition-colors hover:border-black/[0.16]"
             >
               <button
                 type="button"
@@ -491,13 +491,13 @@ export function FaqSection() {
                 onClick={() => setOpenId(isOpen ? null : item.id)}
                 className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
               >
-                <span className="text-sm font-medium text-[#F2F3F3] sm:text-[15px]">
+                <span className="text-sm font-medium text-[#0A0D0D] sm:text-[15px]">
                   {item.question}
                 </span>
                 <span
                   aria-hidden="true"
-                  className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/[0.08] text-[#A3AAAA] transition-transform duration-200 ${
-                    isOpen ? "rotate-45 border-[#20C6C2]/40 text-[#65D9D0]" : ""
+                  className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-black/[0.08] text-[#4A5353] transition-transform duration-200 ${
+                    isOpen ? "rotate-45 border-[#11A39F]/40 text-[#11A39F]" : ""
                   }`}
                 >
                   <IconPlus className="h-3.5 w-3.5" />
@@ -513,7 +513,7 @@ export function FaqSection() {
                     transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
                     className="overflow-hidden"
                   >
-                    <p className="border-t border-white/[0.06] px-6 pt-4 pb-5 text-sm leading-relaxed text-[#A3AAAA]">
+                    <p className="border-t border-black/[0.06] px-6 pt-4 pb-5 text-sm leading-relaxed text-[#4A5353]">
                       {item.answer}
                     </p>
                   </motion.div>

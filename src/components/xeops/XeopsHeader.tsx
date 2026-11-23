@@ -36,8 +36,8 @@ export function XeopsHeader() {
   }, [mobileOpen]);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-white/[0.06] bg-[#090B0B]/75 backdrop-blur-xl">
-      <div className="mx-auto flex h-[74px] max-w-6xl items-center justify-between px-5 sm:px-8">
+    <header className="sticky top-0 z-40 w-full border-b border-white/[0.08] bg-[#090B0B] backdrop-blur-xl">
+      <div className="flex h-[74px] w-full items-center justify-between px-6 sm:px-10 lg:px-16">
         {/* Brand Logo */}
         <Link
           href="/home"

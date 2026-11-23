@@ -10,8 +10,8 @@ type IconProps = SVGProps<SVGSVGElement>;
 export function XeopsMark(props: IconProps) {
   return (
     <svg viewBox="137 157 685 322" aria-hidden="true" {...props}>
-      <path d={LOGO_SPOKE_BOTTOM_LEFT.d} fill="#FFFFFF" />
-      <path d={LOGO_SPOKE_TOP_RIGHT.d} fill="#FFFFFF" />
+      <path d={LOGO_SPOKE_BOTTOM_LEFT.d} fill="currentColor" />
+      <path d={LOGO_SPOKE_TOP_RIGHT.d} fill="currentColor" />
     </svg>
   );
 }

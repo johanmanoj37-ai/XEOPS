@@ -34,35 +34,35 @@ export default function PricingPage() {
       >
         <h2
           id="compare-heading"
-          className="text-2xl font-bold tracking-tight text-[#F2F3F3]"
+          className="text-2xl font-bold tracking-tight text-[#0A0D0D]"
         >
           Compare plan specifications
         </h2>
 
-        <div className="mt-6 overflow-x-auto rounded-[20px] border border-white/[0.08] bg-[#101313]/85">
+        <div className="mt-6 overflow-x-auto rounded-[20px] border border-black/[0.08] bg-white shadow-[0_12px_36px_rgba(0,0,0,0.06)]">
           <table className="w-full min-w-[600px] border-collapse text-left text-sm">
             <thead>
-              <tr className="border-b border-white/[0.08] text-xs uppercase tracking-[0.14em] text-[#737C7C]">
+              <tr className="border-b border-black/[0.08] text-xs uppercase tracking-[0.14em] text-[#727B7B]">
                 <th className="px-6 py-4 font-medium">Capability</th>
                 <th className="px-6 py-4 font-medium">Starter</th>
-                <th className="px-6 py-4 font-medium text-[#65D9D0]">Pro</th>
-                <th className="px-6 py-4 font-medium text-[#C49A58]">Enterprise</th>
+                <th className="px-6 py-4 font-medium text-[#11A39F]">Pro</th>
+                <th className="px-6 py-4 font-medium text-[#A47936]">Enterprise</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/[0.06]">
+            <tbody className="divide-y divide-black/[0.06]">
               {COMPARISON_ROWS.map((row) => (
-                <tr key={row.label} className="hover:bg-white/[0.015]">
-                  <td className="px-6 py-4 font-medium text-[#F2F3F3]">
+                <tr key={row.label} className="hover:bg-black/[0.015]">
+                  <td className="px-6 py-4 font-medium text-[#0A0D0D]">
                     {row.label}
                   </td>
-                  <td className="px-6 py-4 text-[#A3AAAA]">{row.starter}</td>
-                  <td className="px-6 py-4 text-[#F2F3F3]">
+                  <td className="px-6 py-4 text-[#4A5353]">{row.starter}</td>
+                  <td className="px-6 py-4 text-[#0A0D0D]">
                     <span className="inline-flex items-center gap-1.5">
-                      <IconCheck className="h-3.5 w-3.5 text-[#20C6C2]" />
+                      <IconCheck className="h-3.5 w-3.5 text-[#11A39F]" />
                       {row.pro}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-[#A3AAAA]">{row.enterprise}</td>
+                  <td className="px-6 py-4 text-[#4A5353]">{row.enterprise}</td>
                 </tr>
               ))}
             </tbody>

@@ -44,10 +44,10 @@ export function BlogClient() {
       <section className="mx-auto max-w-6xl px-5 pt-16 pb-12 sm:px-8 sm:pt-24">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#20C6C2]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#11A39F]">
               Xeops Journal
             </p>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight text-[#F2F3F3] sm:text-5xl">
+            <h1 className="mt-3 text-4xl font-bold tracking-tight text-[#0A0D0D] sm:text-5xl">
               Engineering notes &amp; design dispatches.
             </h1>
           </div>
@@ -66,8 +66,8 @@ export function BlogClient() {
                   onClick={() => setCategory(cat)}
                   className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-colors ${
                     active
-                      ? "border-[#20C6C2]/50 bg-[#20C6C2]/15 text-[#F2F3F3]"
-                      : "border-white/[0.08] bg-[#141717] text-[#A3AAAA] hover:border-white/20 hover:text-[#F2F3F3]"
+                      ? "border-[#11A39F]/50 bg-[#11A39F]/15 text-[#0A0D0D]"
+                      : "border-black/[0.08] bg-black/[0.03] text-[#4A5353] hover:border-black/20 hover:text-[#0A0D0D]"
                   }`}
                 >
                   {cat}
@@ -79,20 +79,20 @@ export function BlogClient() {
 
         {/* Featured Editorial Banner */}
         {featured ? (
-          <article className="mt-12 overflow-hidden rounded-[24px] border border-white/[0.08] bg-gradient-to-br from-[#161B1B]/95 via-[#121515]/95 to-[#171511]/90 p-7 shadow-[0_24px_65px_rgba(0,0,0,0.5)] sm:p-10">
+          <article className="mt-12 overflow-hidden rounded-[24px] border border-black/[0.08] bg-white p-7 shadow-[0_12px_36px_rgba(0,0,0,0.06)] sm:p-10">
             <div className="flex flex-wrap items-center gap-3 text-xs">
-              <span className="rounded-full border border-[#20C6C2]/30 bg-[#20C6C2]/10 px-3 py-0.5 font-medium text-[#65D9D0]">
+              <span className="rounded-full border border-[#11A39F]/30 bg-[#11A39F]/10 px-3 py-0.5 font-medium text-[#11A39F]">
                 Featured · {featured.category}
               </span>
-              <span className="text-[#737C7C]">
+              <span className="text-[#727B7B]">
                 {featured.date} · {featured.readTime}
               </span>
             </div>
 
-            <h2 className="mt-5 max-w-3xl text-2xl font-bold tracking-tight text-[#F2F3F3] sm:text-3xl">
+            <h2 className="mt-5 max-w-3xl text-2xl font-bold tracking-tight text-[#0A0D0D] sm:text-3xl">
               {featured.title}
             </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#A3AAAA] sm:text-base">
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#4A5353] sm:text-base">
               {featured.excerpt}
             </p>
 
@@ -118,27 +118,27 @@ export function BlogClient() {
             >
               <div>
                 <div className="flex items-center justify-between text-xs">
-                  <span className="font-medium text-[#20C6C2]">
+                  <span className="font-medium text-[#11A39F]">
                     {post.category}
                   </span>
-                  <span className="text-[#737C7C]">
+                  <span className="text-[#727B7B]">
                     {post.date} · {post.readTime}
                   </span>
                 </div>
 
-                <h3 className="mt-4 text-lg font-semibold leading-snug text-[#F2F3F3]">
+                <h3 className="mt-4 text-lg font-semibold leading-snug text-[#0A0D0D]">
                   {post.title}
                 </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-[#A3AAAA]">
+                <p className="mt-2.5 text-sm leading-relaxed text-[#4A5353]">
                   {post.excerpt}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-white/[0.06]">
+              <div className="mt-6 pt-4 border-t border-black/[0.06]">
                 <button
                   type="button"
                   onClick={() => setActiveArticle(post)}
-                  className="inline-flex items-center gap-1.5 text-xs font-medium text-[#F2F3F3] transition-colors hover:text-[#65D9D0]"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium text-[#0A0D0D] transition-colors hover:text-[#11A39F]"
                 >
                   Read article
                   <IconArrowRight className="h-3.5 w-3.5" />
@@ -161,7 +161,7 @@ export function BlogClient() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={() => setActiveArticle(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-md"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-md"
             role="presentation"
           >
             <motion.article
@@ -172,14 +172,14 @@ export function BlogClient() {
               onClick={(e) => e.stopPropagation()}
               role="dialog"
               aria-modal="true"
-              className="max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-[22px] border border-white/[0.1] bg-[#141717] p-6 shadow-[0_32px_90px_rgba(0,0,0,0.8)] sm:p-9"
+              className="max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-[22px] border border-black/[0.1] bg-white p-6 shadow-[0_32px_90px_rgba(0,0,0,0.25)] sm:p-9"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex flex-wrap items-center gap-2.5 text-xs">
-                  <span className="rounded-full border border-[#20C6C2]/30 bg-[#20C6C2]/10 px-2.5 py-0.5 font-medium text-[#65D9D0]">
+                  <span className="rounded-full border border-[#11A39F]/30 bg-[#11A39F]/10 px-2.5 py-0.5 font-medium text-[#11A39F]">
                     {activeArticle.category}
                   </span>
-                  <span className="text-[#737C7C]">
+                  <span className="text-[#727B7B]">
                     {activeArticle.date} · {activeArticle.readTime}
                   </span>
                 </div>
@@ -188,17 +188,17 @@ export function BlogClient() {
                   type="button"
                   onClick={() => setActiveArticle(null)}
                   aria-label="Close article reader"
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-[#A3AAAA] hover:border-white/20 hover:text-[#F2F3F3]"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/[0.08] bg-black/[0.03] text-[#4A5353] hover:border-black/20 hover:text-[#0A0D0D]"
                 >
                   <IconClose className="h-4 w-4" />
                 </button>
               </div>
 
-              <h2 className="mt-5 text-2xl font-bold tracking-tight text-[#F2F3F3] sm:text-3xl">
+              <h2 className="mt-5 text-2xl font-bold tracking-tight text-[#0A0D0D] sm:text-3xl">
                 {activeArticle.title}
               </h2>
 
-              <div className="mt-6 space-y-4 border-t border-white/[0.07] pt-6 text-[15px] leading-relaxed text-[#A3AAAA]">
+              <div className="mt-6 space-y-4 border-t border-black/[0.07] pt-6 text-[15px] leading-relaxed text-[#4A5353]">
                 {activeArticle.paragraphs.map((para) => (
                   <p key={para}>{para}</p>
                 ))}

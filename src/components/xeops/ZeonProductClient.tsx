@@ -334,31 +334,31 @@ export function ZeonProductClient() {
   );
 
   return (
-    <div className="relative w-full overflow-hidden bg-[#070909] text-[#F2F3F3]">
-      {/* ── Cosmic Starfield & Nebula Background ──────────────────────── */}
+    <div className="relative w-full overflow-hidden bg-white text-[#0A0D0D]">
+      {/* ── Subtle Starfield & Ambient Glow Background ──────────────────────── */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <div
-          className="absolute inset-0 opacity-80"
+          className="absolute inset-0 opacity-30"
           style={{
             backgroundImage: `
-              radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-              radial-gradient(1.5px 1.5px at 140px 70px, rgba(101,217,208,0.9), rgba(0,0,0,0)),
-              radial-gradient(1px 1px at 240px 150px, #ffffff, rgba(0,0,0,0)),
-              radial-gradient(1.2px 1.2px at 380px 220px, #ffffff, rgba(0,0,0,0)),
-              radial-gradient(1px 1px at 520px 90px, rgba(255,255,255,0.7), rgba(0,0,0,0)),
-              radial-gradient(1.5px 1.5px at 680px 290px, rgba(32,198,194,0.8), rgba(0,0,0,0)),
-              radial-gradient(1px 1px at 810px 140px, #ffffff, rgba(0,0,0,0)),
-              radial-gradient(1.2px 1.2px at 940px 260px, rgba(255,255,255,0.6), rgba(0,0,0,0)),
-              radial-gradient(1.5px 1.5px at 1080px 80px, #ffffff, rgba(0,0,0,0)),
-              radial-gradient(1px 1px at 1220px 190px, rgba(101,217,208,0.8), rgba(0,0,0,0)),
-              radial-gradient(1.2px 1.2px at 1340px 320px, #ffffff, rgba(0,0,0,0)),
-              radial-gradient(1px 1px at 1480px 110px, #ffffff, rgba(0,0,0,0))
+              radial-gradient(1px 1px at 20px 30px, #0A0D0D, rgba(255,255,255,0)),
+              radial-gradient(1.5px 1.5px at 140px 70px, rgba(17,163,159,0.8), rgba(255,255,255,0)),
+              radial-gradient(1px 1px at 240px 150px, #0A0D0D, rgba(255,255,255,0)),
+              radial-gradient(1.2px 1.2px at 380px 220px, #0A0D0D, rgba(255,255,255,0)),
+              radial-gradient(1px 1px at 520px 90px, rgba(10,13,13,0.5), rgba(255,255,255,0)),
+              radial-gradient(1.5px 1.5px at 680px 290px, rgba(17,163,159,0.7), rgba(255,255,255,0)),
+              radial-gradient(1px 1px at 810px 140px, #0A0D0D, rgba(255,255,255,0)),
+              radial-gradient(1.2px 1.2px at 940px 260px, rgba(10,13,13,0.4), rgba(255,255,255,0)),
+              radial-gradient(1.5px 1.5px at 1080px 80px, #0A0D0D, rgba(255,255,255,0)),
+              radial-gradient(1px 1px at 1220px 190px, rgba(17,163,159,0.8), rgba(255,255,255,0)),
+              radial-gradient(1.2px 1.2px at 1340px 320px, #0A0D0D, rgba(255,255,255,0)),
+              radial-gradient(1px 1px at 1480px 110px, #0A0D0D, rgba(255,255,255,0))
             `,
             backgroundRepeat: "repeat",
             backgroundSize: "800px 400px",
           }}
         />
-        <div className="absolute -top-32 left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(32,198,194,0.12)_0%,rgba(10,25,30,0.05)_50%,transparent_75%)] blur-3xl" />
+        <div className="absolute -top-32 left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(32,198,194,0.1)_0%,transparent_70%)] blur-3xl" />
       </div>
 
       {/* ── Pinned Scroll-Driven Transition Stage (Hero -> Meet Product) ──── */}
@@ -387,10 +387,7 @@ export function ZeonProductClient() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -direction * 40 }}
                   transition={{ duration: 0.35, ease: "easeInOut" }}
-                  className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-light tracking-[0.05em] sm:tracking-[0.08em] text-[#F4F6F6] leading-snug sm:leading-tight max-w-xl text-center"
-                  style={{
-                    textShadow: "0 0 25px rgba(32, 198, 194, 0.35), 0 0 50px rgba(10, 30, 30, 0.7)",
-                  }}
+                  className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-light tracking-[0.05em] sm:tracking-[0.08em] text-[#0A0D0D] leading-snug sm:leading-tight max-w-xl text-center"
                 >
                   {currentProduct.name}
                 </motion.h1>
@@ -401,7 +398,7 @@ export function ZeonProductClient() {
               <button
                 type="button"
                 onClick={() => openGetStarted("pro")}
-                className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-[#EBFBFB] px-7 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#0A1313] shadow-[0_0_20px_rgba(255,255,255,0.45),0_0_40px_rgba(32,198,194,0.35)] transition-all duration-300 hover:scale-105 hover:bg-[#FFFFFF] hover:shadow-[0_0_30px_rgba(101,217,208,0.7)]"
+                className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-[#0A0D0D] px-7 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-[0_4px_16px_rgba(0,0,0,0.18)] transition-all duration-300 hover:scale-105 hover:bg-[#11A39F]"
               >
                 Get Started
               </button>
@@ -416,13 +413,13 @@ export function ZeonProductClient() {
             <div className="flex flex-col gap-4 sm:gap-5 py-2">
               {/* ── Zeon About Block ── */}
               <div>
-                <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.26em] text-[#20C6C2]">
+                <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.26em] text-[#11A39F]">
                   {PRODUCTS.zeon.intro.badge}
                 </p>
-                <h2 className="mt-1.5 text-xl sm:text-2xl lg:text-[1.85rem] font-bold tracking-tight text-[#F2F3F3] leading-[1.2]">
+                <h2 className="mt-1.5 text-xl sm:text-2xl lg:text-[1.85rem] font-bold tracking-tight text-[#0A0D0D] leading-[1.2]">
                   {PRODUCTS.zeon.intro.headline}
                 </h2>
-                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#A3AAAA]">
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#4A5353]">
                   {PRODUCTS.zeon.intro.description}
                 </p>
                 <div className="mt-3.5">
@@ -443,18 +440,18 @@ export function ZeonProductClient() {
               {/* Line separating both */}
               <div
                 role="separator"
-                className="w-full border-t border-white/[0.12] my-1 sm:my-2"
+                className="w-full border-t border-black/[0.12] my-1 sm:my-2"
               />
 
               {/* ── Scopus About Block ── */}
               <div>
-                <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.26em] text-[#20C6C2]">
+                <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.26em] text-[#11A39F]">
                   {PRODUCTS.scopus.intro.badge}
                 </p>
-                <h2 className="mt-1.5 text-xl sm:text-2xl lg:text-[1.85rem] font-bold tracking-tight text-[#F2F3F3] leading-[1.2]">
+                <h2 className="mt-1.5 text-xl sm:text-2xl lg:text-[1.85rem] font-bold tracking-tight text-[#0A0D0D] leading-[1.2]">
                   {PRODUCTS.scopus.intro.headline}
                 </h2>
-                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#A3AAAA]">
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#4A5353]">
                   {PRODUCTS.scopus.intro.description}
                 </p>
                 <div className="mt-3.5">
@@ -483,14 +480,14 @@ export function ZeonProductClient() {
               {/* Subtle ambient back-glow aura highlighting the active mark */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-20 w-56 sm:h-24 sm:w-72 rounded-full bg-[#20C6C2]/15 blur-2xl"
+                className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-20 w-56 sm:h-24 sm:w-72 rounded-full bg-[#11A39F]/15 blur-2xl"
               />
 
               {/* Arrow sign on the left side with generous distance from the centered writing */}
               <button
                 type="button"
                 onClick={toggleProduct}
-                className="group absolute right-[calc(100%+0.625rem)] sm:right-[calc(100%+2rem)] lg:right-[calc(100%+3.5rem)] top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/20 bg-white/[0.05] text-[#F2F3F3] shadow-[0_0_20px_rgba(32,198,194,0.25)] transition-all duration-300 hover:scale-110 hover:border-[#20C6C2] hover:bg-[#20C6C2]/15 active:scale-95 shrink-0"
+                className="group absolute right-[calc(100%+0.625rem)] sm:right-[calc(100%+2rem)] lg:right-[calc(100%+3.5rem)] top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-black/15 bg-white text-[#0A0D0D] shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all duration-300 hover:scale-110 hover:border-[#11A39F] hover:bg-[#11A39F]/10 active:scale-95 shrink-0"
                 aria-label={`Switch to ${otherProduct.displayName}`}
                 title={`Switch to ${otherProduct.displayName}`}
               >
@@ -513,13 +510,13 @@ export function ZeonProductClient() {
                     className="flex items-center justify-center text-center"
                   >
                     <Image
-                      src="/zeon-script-white.png"
+                      src="/zeon-script.png"
                       alt="Zeon"
                       width={494}
                       height={113}
                       priority
                       draggable={false}
-                      className="relative z-10 h-14 w-auto object-contain sm:h-20 md:h-24 lg:h-28 drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] drop-shadow-[0_0_40px_rgba(32,198,194,0.3)] transition-transform duration-300 hover:scale-105"
+                      className="relative z-10 h-14 w-auto object-contain sm:h-20 md:h-24 lg:h-28 drop-shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-transform duration-300 hover:scale-105"
                     />
                   </motion.div>
                 ) : (
@@ -539,9 +536,9 @@ export function ZeonProductClient() {
                       height={435}
                       priority
                       draggable={false}
-                      className="relative z-10 h-16 w-auto object-contain sm:h-20 md:h-24 lg:h-28 drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] drop-shadow-[0_0_40px_rgba(32,198,194,0.3)] transition-transform duration-300 hover:scale-105"
+                      className="relative z-10 h-16 w-auto object-contain sm:h-20 md:h-24 lg:h-28 drop-shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-transform duration-300 hover:scale-105"
                     />
-                    <span className="font-serif text-lg sm:text-xl lg:text-2xl font-light tracking-[0.34em] text-[#F4F6F6] drop-shadow-[0_0_20px_rgba(32,198,194,0.4)] text-center pl-[0.34em]">
+                    <span className="font-serif text-lg sm:text-xl lg:text-2xl font-light tracking-[0.34em] text-[#0A0D0D] text-center pl-[0.34em]">
                       SCOPUS
                     </span>
                   </motion.div>

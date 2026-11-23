@@ -1,148 +1,35 @@
 "use client";
 
-import Link from "next/link";
 import { XEOPS_WORDMARK } from "@/components/brand/xeops-paths";
-import { HERO_PILLARS } from "@/components/xeops/xeops-data";
-import { HeroSculpture } from "@/components/xeops/HeroSculpture";
-import { ProductShowcaseTablet } from "@/components/xeops/ProductShowcaseTablet";
-import {
-  AboutServicesSection,
-  FaqSection,
-  FinalCtaBanner,
-  IntegrationsSection,
-  PricingSection,
-  TestimonialsSection,
-} from "@/components/xeops/HomeSections";
-import {
-  IconArrowRight,
-  IconBolt,
-  IconGrid,
-  IconShieldCheck,
-  IconUsers,
-} from "@/components/xeops/XeopsIcons";
-
-const PILLAR_ICONS = {
-  fast: IconBolt,
-  custom: IconGrid,
-  enterprise: IconShieldCheck,
-  teams: IconUsers,
-} as const;
 
 export function HomeLanding() {
   return (
     <div className="w-full">
-      {/* ── Hero Section ─────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-6xl px-5 pt-10 pb-16 sm:px-8 sm:pt-14 sm:pb-24">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
-          <div className="flex flex-col items-center justify-center lg:col-span-6 lg:items-start lg:self-start lg:pt-10">
-            <svg
-              viewBox={XEOPS_WORDMARK.viewBox}
-              className="h-auto w-[min(74vw,340px)] sm:w-[390px] lg:w-[420px]"
-              role="img"
-              aria-label="XEOPS"
-            >
-              {XEOPS_WORDMARK.glyphs.map((glyph) => (
-                <path
-                  key={glyph.id}
-                  d={glyph.d}
-                  fill="#FFFFFF"
-                  fillRule="evenodd"
-                />
-              ))}
-            </svg>
-
-            <h1 className="mt-6 text-center text-3xl font-bold leading-[1.12] tracking-[-0.025em] text-[#F2F3F3] sm:text-4xl lg:text-left lg:text-[2.65rem]">
-              Built on clarity.
-              <br />
-              <span className="xeops-gradient-teal">Designed to last.</span>
-            </h1>
-
-            <p className="mt-4 max-w-md text-center text-[15px] leading-relaxed text-[#A3AAAA] sm:text-base lg:text-left">
-              An independent company focused on disciplined engineering, honest
-              design, and work that earns trust over time.
-            </p>
-          </div>
-
-          <div className="lg:col-span-6">
-            <HeroSculpture />
-          </div>
-        </div>
-
-        {/* ── 4-Column Capability Strip ───────────────────────────────── */}
-        <div
-          aria-label="Core Capabilities"
-          className="mt-14 overflow-hidden rounded-[20px] border border-white/[0.08] bg-[#141717]/80 backdrop-blur-xl shadow-[0_24px_60px_rgba(0,0,0,0.48)] sm:mt-18"
-        >
-          <div className="grid grid-cols-1 divide-y divide-white/[0.08] sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
-            {HERO_PILLARS.map((pillar) => {
-              const Icon = PILLAR_ICONS[pillar.id];
-              return (
-                <div
-                  key={pillar.id}
-                  className="group flex flex-col items-center px-6 py-7 text-center transition-colors hover:bg-white/[0.02]"
-                >
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.07] bg-white/[0.02] text-[#A3AAAA] transition-colors group-hover:border-[#20C6C2]/30 group-hover:text-[#65D9D0]">
-                    <Icon className="h-4 w-4" />
-                  </span>
-                  <h2 className="mt-4 text-sm font-semibold tracking-tight text-[#F2F3F3]">
-                    {pillar.title}
-                  </h2>
-                  <p className="mt-1.5 text-xs leading-relaxed text-[#737C7C]">
-                    {pillar.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Powerful Features Showcase ──────────────────────────────── */}
-      <section
-        id="features"
-        aria-labelledby="showcase-heading"
-        className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"
-      >
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-5">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#20C6C2]">
-              Powerful Features
-            </p>
-            <h2
-              id="showcase-heading"
-              className="mt-3 text-3xl font-bold leading-tight tracking-tight text-[#F2F3F3] sm:text-4xl lg:text-[2.6rem]"
-            >
-              Everything you need to do{" "}
-              <span className="xeops-gradient-teal">more.</span>
-            </h2>
-            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-[#A3AAAA]">
-              Powerful tools, intuitive design, and seamless collaboration — all
-              in one place.
-            </p>
-            <div className="mt-7">
-              <Link
-                href="/features"
-                className="xeops-btn-secondary px-6 py-3 text-sm"
+      <section className="flex min-h-[calc(100dvh-74px-180px)] w-full flex-col justify-start px-6 pt-20 pb-20 sm:px-10 sm:pt-28 sm:pb-24 lg:px-16 lg:pt-36">
+        <div className="w-full max-w-6xl text-left">
+          <h1 className="text-3xl font-light leading-snug tracking-tight text-[#0A0D0D] sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4rem] xl:leading-[1.15]">
+            no tagline because a sentence cant define what we at{" "}
+            <span className="inline-block align-baseline font-semibold text-[#0A0D0D]">
+              <svg
+                viewBox={XEOPS_WORDMARK.viewBox}
+                className="inline-block h-[0.74em] w-auto align-baseline overflow-visible"
+                role="img"
+                aria-label="XEOPS"
               >
-                Explore Features
-                <IconArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-
-          <div className="lg:col-span-7">
-            <ProductShowcaseTablet />
-          </div>
+                {XEOPS_WORDMARK.glyphs.map((glyph) => (
+                  <path
+                    key={glyph.id}
+                    d={glyph.d}
+                    fill="currentColor"
+                    fillRule="evenodd"
+                  />
+                ))}
+              </svg>
+            </span>{" "}
+            for
+          </h1>
         </div>
       </section>
-
-      {/* ── Additional Design System Sections ───────────────────────── */}
-      <AboutServicesSection />
-      <IntegrationsSection />
-      <PricingSection compact />
-      <TestimonialsSection />
-      <FaqSection />
-      <FinalCtaBanner />
     </div>
   );
 }

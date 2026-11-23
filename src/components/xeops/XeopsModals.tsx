@@ -92,14 +92,14 @@ function GetStartedDialogBody({
     <div className="relative p-6 sm:p-8">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] font-medium tracking-wide text-[#65D9D0]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#20C6C2]" />
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#11A39F]/30 bg-[#11A39F]/10 px-3 py-1 text-[11px] font-medium tracking-wide text-[#11A39F]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#11A39F]" />
             Workspace Setup
           </span>
-          <h2 className="mt-3 text-xl font-semibold tracking-tight text-[#F2F3F3] sm:text-2xl">
+          <h2 className="mt-3 text-xl font-semibold tracking-tight text-[#0A0D0D] sm:text-2xl">
             Launch your Xeops workspace
           </h2>
-          <p className="mt-1.5 text-sm text-[#A3AAAA]">
+          <p className="mt-1.5 text-sm text-[#4A5353]">
             Reserve your cloud slug and receive instant sandbox credentials.
           </p>
         </div>
@@ -108,30 +108,30 @@ function GetStartedDialogBody({
           type="button"
           onClick={onClose}
           aria-label="Close workspace setup dialog"
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-[#A3AAAA] transition-colors hover:border-white/20 hover:text-[#F2F3F3]"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/[0.08] bg-black/[0.03] text-[#4A5353] transition-colors hover:border-black/20 hover:text-[#0A0D0D]"
         >
           <IconClose className="h-4 w-4" />
         </button>
       </div>
 
       {submitted ? (
-        <div className="mt-6 rounded-2xl border border-[#20C6C2]/30 bg-[#20C6C2]/[0.07] p-6">
+        <div className="mt-6 rounded-2xl border border-[#11A39F]/30 bg-[#11A39F]/[0.07] p-6">
           <div className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#20C6C2]/20 text-[#65D9D0]">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#11A39F]/20 text-[#11A39F]">
               <IconCheck className="h-5 w-5" />
             </span>
             <div>
-              <h3 className="text-base font-medium text-[#F2F3F3]">
+              <h3 className="text-base font-medium text-[#0A0D0D]">
                 Access request reserved
               </h3>
-              <p className="text-xs text-[#A3AAAA]">
-                Plan: <span className="capitalize text-[#65D9D0]">{selectedPlan}</span>{" "}
+              <p className="text-xs text-[#4A5353]">
+                Plan: <span className="capitalize text-[#11A39F]">{selectedPlan}</span>{" "}
                 {workspaceName.trim() ? `· Workspace: ${workspaceName.trim()}` : ""}
               </p>
             </div>
           </div>
-          <p className="mt-4 text-sm leading-relaxed text-[#A3AAAA]">
-            Provisioning details for <span className="text-[#F2F3F3]">{workEmail.trim()}</span>{" "}
+          <p className="mt-4 text-sm leading-relaxed text-[#4A5353]">
+            Provisioning details for <span className="text-[#0A0D0D] font-medium">{workEmail.trim()}</span>{" "}
             are queued. You can inspect live demo capabilities right away or close this window to continue exploring Xeops.
           </p>
           <div className="mt-5 flex justify-end">
@@ -148,7 +148,7 @@ function GetStartedDialogBody({
         <form onSubmit={handleSubmit} className="mt-6 space-y-5" noValidate>
           {/* Plan selector */}
           <div>
-            <span className="mb-2 block text-xs font-medium uppercase tracking-[0.14em] text-[#737C7C]">
+            <span className="mb-2 block text-xs font-medium uppercase tracking-[0.14em] text-[#727B7B]">
               Select Tier
             </span>
             <div className="grid grid-cols-3 gap-2">
@@ -161,8 +161,8 @@ function GetStartedDialogBody({
                     onClick={() => setSelectedPlan(tier)}
                     className={`rounded-xl border px-3 py-2.5 text-left text-xs font-medium capitalize transition-all ${
                       active
-                        ? "border-[#20C6C2]/55 bg-[#20C6C2]/12 text-[#F2F3F3] shadow-[0_0_20px_rgba(32,198,194,0.16)]"
-                        : "border-white/[0.08] bg-[#101313] text-[#A3AAAA] hover:border-white/20 hover:text-[#F2F3F3]"
+                        ? "border-[#11A39F]/55 bg-[#11A39F]/12 text-[#0A0D0D] shadow-[0_0_20px_rgba(17,163,159,0.16)]"
+                        : "border-black/[0.08] bg-black/[0.02] text-[#4A5353] hover:border-black/20 hover:text-[#0A0D0D]"
                     }`}
                   >
                     {tier}
@@ -176,7 +176,7 @@ function GetStartedDialogBody({
             <div>
               <label
                 htmlFor="xeops-workspace-input"
-                className="mb-1.5 block text-xs font-medium text-[#A3AAAA]"
+                className="mb-1.5 block text-xs font-medium text-[#4A5353]"
               >
                 Workspace or team name
               </label>
@@ -186,16 +186,16 @@ function GetStartedDialogBody({
                 value={workspaceName}
                 onChange={(e) => setWorkspaceName(e.target.value)}
                 placeholder="e.g. nova-systems"
-                className="w-full rounded-xl border border-white/[0.1] bg-[#090B0B] px-4 py-2.5 text-sm text-[#F2F3F3] placeholder:text-[#737C7C] focus:border-[#20C6C2]/60 focus:outline-none"
+                className="w-full rounded-xl border border-black/[0.12] bg-black/[0.02] px-4 py-2.5 text-sm text-[#0A0D0D] placeholder:text-[#727B7B] focus:border-[#11A39F] focus:outline-none"
               />
             </div>
 
             <div>
               <label
                 htmlFor="xeops-email-input"
-                className="mb-1.5 block text-xs font-medium text-[#A3AAAA]"
+                className="mb-1.5 block text-xs font-medium text-[#4A5353]"
               >
-                Work email <span className="text-[#20C6C2]">*</span>
+                Work email <span className="text-[#11A39F]">*</span>
               </label>
               <input
                 id="xeops-email-input"
@@ -207,10 +207,10 @@ function GetStartedDialogBody({
                   if (error) setError(null);
                 }}
                 placeholder="you@company.com"
-                className="w-full rounded-xl border border-white/[0.1] bg-[#090B0B] px-4 py-2.5 text-sm text-[#F2F3F3] placeholder:text-[#737C7C] focus:border-[#20C6C2]/60 focus:outline-none"
+                className="w-full rounded-xl border border-black/[0.12] bg-black/[0.02] px-4 py-2.5 text-sm text-[#0A0D0D] placeholder:text-[#727B7B] focus:border-[#11A39F] focus:outline-none"
               />
               {error ? (
-                <p className="mt-1.5 text-xs text-[#C49A58]" role="alert">
+                <p className="mt-1.5 text-xs text-rose-500" role="alert">
                   {error}
                 </p>
               ) : null}
@@ -218,7 +218,7 @@ function GetStartedDialogBody({
           </div>
 
           <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-            <span className="text-xs text-[#737C7C]">
+            <span className="text-xs text-[#727B7B]">
               No credit card required · Instant setup
             </span>
             <button type="submit" className="xeops-btn-primary px-6 py-2.5 text-sm">
@@ -246,10 +246,10 @@ function WatchDemoDialogBody({
     <div className="relative p-6 sm:p-8">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <span className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-[#20C6C2]">
+          <span className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-[#11A39F]">
             Interactive Product Tour
           </span>
-          <h2 className="mt-1.5 text-xl font-semibold tracking-tight text-[#F2F3F3] sm:text-2xl">
+          <h2 className="mt-1.5 text-xl font-semibold tracking-tight text-[#0A0D0D] sm:text-2xl">
             Inside the Xeops Runtime
           </h2>
         </div>
@@ -258,7 +258,7 @@ function WatchDemoDialogBody({
           type="button"
           onClick={onClose}
           aria-label="Close product demo dialog"
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-[#A3AAAA] transition-colors hover:border-white/20 hover:text-[#F2F3F3]"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/[0.08] bg-black/[0.03] text-[#4A5353] transition-colors hover:border-black/20 hover:text-[#0A0D0D]"
         >
           <IconClose className="h-4 w-4" />
         </button>
@@ -275,11 +275,11 @@ function WatchDemoDialogBody({
               onClick={() => setStageIdx(idx)}
               className={`rounded-xl border px-3 py-2.5 text-left transition-all ${
                 active
-                  ? "border-[#20C6C2]/45 bg-[#20C6C2]/10 text-[#F2F3F3]"
-                  : "border-white/[0.08] bg-[#101313] text-[#A3AAAA] hover:border-white/20 hover:text-[#F2F3F3]"
+                  ? "border-[#11A39F]/50 bg-[#11A39F]/10 text-[#0A0D0D]"
+                  : "border-black/[0.08] bg-black/[0.02] text-[#4A5353] hover:border-black/20 hover:text-[#0A0D0D]"
               }`}
             >
-              <span className="block font-mono text-[10px] tracking-[0.18em] text-[#737C7C]">
+              <span className="block font-mono text-[10px] tracking-[0.18em] text-[#727B7B]">
                 {stage.step}
               </span>
               <span className="mt-0.5 block text-xs font-medium">{stage.title}</span>
@@ -372,10 +372,10 @@ function LegalDialogBody({
     <div className="relative p-6 sm:p-8">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#20C6C2]">
+          <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#11A39F]">
             Xeops Legal
           </span>
-          <h2 className="mt-1.5 text-xl font-semibold text-[#F2F3F3]">
+          <h2 className="mt-1.5 text-xl font-semibold text-[#0A0D0D]">
             {isPrivacy ? "Privacy Policy" : "Terms of Service"}
           </h2>
         </div>
@@ -383,13 +383,13 @@ function LegalDialogBody({
           type="button"
           onClick={onClose}
           aria-label="Close legal dialog"
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-[#A3AAAA] transition-colors hover:border-white/20 hover:text-[#F2F3F3]"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/[0.08] bg-black/[0.03] text-[#4A5353] transition-colors hover:border-black/20 hover:text-[#0A0D0D]"
         >
           <IconClose className="h-4 w-4" />
         </button>
       </div>
 
-      <div className="mt-5 space-y-3 text-sm leading-relaxed text-[#A3AAAA]">
+      <div className="mt-5 space-y-3 text-sm leading-relaxed text-[#4A5353]">
         {isPrivacy ? (
           <>
             <p>
@@ -467,7 +467,7 @@ export function XeopsModals() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
           onClick={handleCloseAll}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-md"
           role="presentation"
         >
           <motion.div
@@ -479,7 +479,7 @@ export function XeopsModals() {
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"
-            className="w-full max-w-lg overflow-hidden rounded-[22px] border border-white/[0.1] bg-[#141717] shadow-[0_32px_90px_rgba(0,0,0,0.75)]"
+            className="w-full max-w-lg overflow-hidden rounded-[22px] border border-black/[0.1] bg-white shadow-[0_32px_90px_rgba(0,0,0,0.25)] text-[#0A0D0D]"
           >
             {startOpen ? (
               <GetStartedDialogBody

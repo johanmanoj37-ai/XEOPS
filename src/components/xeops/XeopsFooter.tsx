@@ -22,13 +22,14 @@ export function XeopsFooter() {
   const { openLegal } = useXeopsModals();
 
   return (
-    <footer className="relative z-10 border-t border-white/[0.07] bg-[#090B0B]/90">
-      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8">
+    <footer className="relative z-10 border-t border-black/[0.08] bg-white">
+      <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
         {/* Top Row: Logo | Nav Links | Socials */}
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <Link
             href="/home"
-            className="flex items-center gap-2.5 text-[#F2F3F3] transition-opacity hover:opacity-85"
+            className="flex items-center gap-2.5 text-[#0A0D0D] transition-opacity hover:opacity-85"
+            aria-label="Xeops Home"
           >
             <XeopsMark className="h-4 w-auto" />
             <span className="text-base font-semibold tracking-tight">Xeops</span>
@@ -42,14 +43,14 @@ export function XeopsFooter() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-xs font-medium text-[#A3AAAA] transition-colors hover:text-[#F2F3F3]"
+                className="text-xs font-medium text-[#4A5353] transition-colors hover:text-[#0A0D0D]"
               >
                 {item.label}
               </Link>
             ))}
             <Link
               href="/"
-              className="text-xs font-medium text-[#737C7C] transition-colors hover:text-[#65D9D0]"
+              className="text-xs font-medium text-[#727B7B] transition-colors hover:text-[#11A39F]"
             >
               Replay Intro
             </Link>
@@ -63,7 +64,7 @@ export function XeopsFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.02] text-[#A3AAAA] transition-colors hover:border-white/25 hover:text-[#F2F3F3]"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.08] bg-black/[0.02] text-[#4A5353] transition-colors hover:border-black/25 hover:text-[#0A0D0D]"
               >
                 <Icon className="h-3.5 w-3.5" />
               </a>
@@ -72,20 +73,20 @@ export function XeopsFooter() {
         </div>
 
         {/* Bottom Hairline Legal Row */}
-        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-white/[0.07] pt-7 text-xs text-[#737C7C] sm:flex-row sm:items-center">
+        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-black/[0.07] pt-7 text-xs text-[#727B7B] sm:flex-row sm:items-center">
           <p>© 2026 Xeops. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <button
               type="button"
               onClick={() => openLegal("privacy")}
-              className="transition-colors hover:text-[#A3AAAA]"
+              className="transition-colors hover:text-[#0A0D0D]"
             >
               Privacy Policy
             </button>
             <button
               type="button"
               onClick={() => openLegal("terms")}
-              className="transition-colors hover:text-[#A3AAAA]"
+              className="transition-colors hover:text-[#0A0D0D]"
             >
               Terms of Service
             </button>
