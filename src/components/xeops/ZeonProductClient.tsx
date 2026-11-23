@@ -40,7 +40,7 @@ const PRODUCTS: Record<ProductId, ProductConfig> = {
       description:
         "Zeon is a modern warehouse management solution designed to simplify inventory, orders and business operations. Track inventory, manage orders and monitor your business with real-time insights.",
       ctaText: "Discover Zeon",
-      ctaHref: "https://xeops.in",
+      ctaHref: "https://zeon.xeops.in/",
     },
   },
   scopus: {
