@@ -389,22 +389,6 @@ export function ZeonProductClient() {
                 </motion.h1>
               </AnimatePresence>
             </div>
-
-            <div className="mt-4 sm:mt-5 flex items-center justify-center">
-              <button
-                type="button"
-                onClick={() => {
-                  window.scrollTo({
-                    top: (containerRef.current?.offsetTop || 0) + (containerRef.current?.offsetHeight || 0) * 0.45,
-                    behavior: "smooth",
-                  });
-                }}
-                className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-[#0A0D0D] px-7 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-[0_4px_16px_rgba(0,0,0,0.18)] transition-all duration-300 hover:scale-105 hover:bg-black active:scale-95"
-              >
-                Discover {currentProduct.displayName}
-                <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </button>
-            </div>
           </div>
 
           {/* Left Introduction Section: Zeon & Scopus (Revealed on scroll) */}
