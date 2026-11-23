@@ -36,16 +36,16 @@ export function XeopsHeader() {
   }, [mobileOpen]);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-white/[0.08] bg-[#090B0B] backdrop-blur-xl">
+    <header className="sticky top-0 z-40 w-full border-b border-white/[0.08] bg-black/90 backdrop-blur-xl">
       <div className="flex h-[74px] w-full items-center justify-between px-6 sm:px-10 lg:px-16">
         {/* Brand Logo */}
         <Link
           href="/home"
-          className="flex items-center gap-2.5 text-[#F2F3F3] transition-opacity hover:opacity-90"
+          className="flex items-center gap-2.5 text-white transition-opacity hover:opacity-90"
           aria-label="Xeops Home"
         >
           <XeopsMark className="h-5 w-auto" />
-          <span className="text-[17px] font-semibold tracking-tight text-[#F2F3F3]">
+          <span className="text-[17px] font-semibold tracking-tight text-white">
             Xeops
           </span>
         </Link>
@@ -65,15 +65,15 @@ export function XeopsHeader() {
                 aria-current={isActive ? "page" : undefined}
                 className={`relative py-2 text-[13px] font-medium transition-colors ${
                   isActive
-                    ? "text-[#F2F3F3]"
-                    : "text-[#A3AAAA] hover:text-[#F2F3F3]"
+                    ? "text-white"
+                    : "text-white/60 hover:text-white"
                 }`}
               >
                 {item.label}
                 {isActive ? (
                   <span
                     aria-hidden="true"
-                    className="absolute inset-x-0 -bottom-0.5 h-[2px] rounded-full bg-gradient-to-r from-[#65D9D0] to-[#20C6C2] shadow-[0_0_10px_rgba(32,198,194,0.65)]"
+                    className="absolute inset-x-0 -bottom-0.5 h-[2px] rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.4)]"
                   />
                 ) : null}
               </Link>
@@ -86,7 +86,7 @@ export function XeopsHeader() {
           <button
             type="button"
             onClick={() => openGetStarted("pro")}
-            className="xeops-btn-primary hidden px-5 py-2 text-[13px] sm:inline-flex"
+            className="hidden items-center justify-center gap-2 rounded-full bg-white px-5 py-2 text-[13px] font-medium text-black transition-all hover:bg-neutral-200 active:scale-95 sm:inline-flex"
           >
             Get Started
             <IconArrowRight className="h-3.5 w-3.5" />
@@ -97,7 +97,7 @@ export function XeopsHeader() {
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileOpen}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.03] text-[#F2F3F3] transition-colors hover:border-white/25 md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.03] text-white transition-colors hover:border-white/25 md:hidden"
           >
             {mobileOpen ? (
               <IconClose className="h-5 w-5" />
@@ -116,7 +116,7 @@ export function XeopsHeader() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-white/[0.07] bg-[#101313]/95 backdrop-blur-2xl md:hidden"
+            className="overflow-hidden border-t border-white/[0.07] bg-black/95 backdrop-blur-2xl md:hidden"
           >
             <nav
               aria-label="Mobile Navigation"
@@ -133,13 +133,13 @@ export function XeopsHeader() {
                     aria-current={isActive ? "page" : undefined}
                     className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-medium transition-colors ${
                       isActive
-                        ? "bg-[#20C6C2]/10 text-[#F2F3F3]"
-                        : "text-[#A3AAAA] hover:bg-white/[0.04] hover:text-[#F2F3F3]"
+                        ? "bg-white/10 text-white"
+                        : "text-white/60 hover:bg-white/[0.04] hover:text-white"
                     }`}
                   >
                     <span>{item.label}</span>
                     {isActive ? (
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#20C6C2]" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-white" />
                     ) : null}
                   </Link>
                 );
@@ -152,7 +152,7 @@ export function XeopsHeader() {
                     setMobileOpen(false);
                     openGetStarted("pro");
                   }}
-                  className="xeops-btn-primary w-full px-5 py-2.5 text-sm"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black transition-all hover:bg-neutral-200 active:scale-95"
                 >
                   Get Started
                   <IconArrowRight className="h-4 w-4" />
@@ -160,7 +160,7 @@ export function XeopsHeader() {
                 <Link
                   href="/"
                   onClick={() => setMobileOpen(false)}
-                  className="xeops-btn-secondary w-full px-5 py-2.5 text-xs text-[#A3AAAA]"
+                  className="flex w-full items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-xs font-medium text-white/60 transition-colors hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
                 >
                   Replay Intro Animation
                 </Link>
