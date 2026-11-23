@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { IconArrowRight } from "@/components/xeops/XeopsIcons";
+import { IconArrowLeft, IconArrowRight } from "@/components/xeops/XeopsIcons";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -65,6 +65,7 @@ export function ZeonProductClient() {
   const heroContentRef = useRef<HTMLDivElement>(null);
   const introContentRef = useRef<HTMLDivElement>(null);
   const orbRef = useRef<HTMLDivElement>(null);
+  const swipeIndicatorRef = useRef<HTMLDivElement>(null);
 
   const currentProduct = PRODUCTS[activeId];
   const otherId: ProductId = activeId === "zeon" ? "scopus" : "zeon";
@@ -234,9 +235,9 @@ export function ZeonProductClient() {
           },
         });
 
-        // 1. Initial Hero Text fades out quickly
+        // 1. Initial Hero Text & Swipe Indicator fade out quickly
         tl.to(
-          heroContentRef.current,
+          [heroContentRef.current, swipeIndicatorRef.current],
           {
             opacity: 0,
             y: -30,
@@ -288,7 +289,7 @@ export function ZeonProductClient() {
         });
 
         tl.to(
-          heroContentRef.current,
+          [heroContentRef.current, swipeIndicatorRef.current],
           {
             opacity: 0,
             y: -25,
@@ -453,41 +454,24 @@ export function ZeonProductClient() {
           <div className="relative mt-auto flex flex-col items-center justify-end overflow-visible pb-24 sm:pb-32 lg:pb-36">
             <div
               ref={orbRef}
-              className="relative flex items-center justify-center shrink-0 will-change-transform select-none"
+              onClick={toggleProduct}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  toggleProduct();
+                }
+              }}
+              className="relative flex items-center justify-center shrink-0 will-change-transform select-none cursor-pointer"
+              aria-label={`Switch to ${otherProduct.displayName}`}
+              title={`Click or swipe to switch to ${otherProduct.displayName}`}
             >
               {/* Subtle ambient back-glow aura highlighting the active mark (Monochrome) */}
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-20 w-56 sm:h-24 sm:w-72 rounded-full bg-black/[0.04] blur-2xl"
               />
-
-              {/* Product Switch Arrow: Right side for Zeon, Left side for Scopus */}
-              <AnimatePresence mode="wait">
-                <motion.button
-                  key={`switch-${activeId}`}
-                  type="button"
-                  onClick={toggleProduct}
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.85 }}
-                  transition={{ duration: 0.25, ease: "easeInOut" }}
-                  className={`group absolute top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-black/15 bg-white text-[#0A0D0D] shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all duration-300 hover:scale-110 hover:border-black hover:bg-black/5 active:scale-95 shrink-0 ${
-                    activeId === "zeon"
-                      ? "left-[calc(100%+1.5rem)] sm:left-[calc(100%+3rem)] md:left-[calc(100%+4rem)] lg:left-[calc(100%+5rem)] xl:left-[calc(100%+6.5rem)]"
-                      : "right-[calc(100%+1.5rem)] sm:right-[calc(100%+3.5rem)] md:right-[calc(100%+4.5rem)] lg:right-[calc(100%+6rem)] xl:right-[calc(100%+7.5rem)]"
-                  }`}
-                  aria-label={`Switch to ${otherProduct.displayName}`}
-                  title={`Switch to ${otherProduct.displayName}`}
-                >
-                  <IconArrowRight
-                    className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 ${
-                      activeId === "scopus"
-                        ? "rotate-180 group-hover:-translate-x-0.5"
-                        : "group-hover:translate-x-0.5"
-                    }`}
-                  />
-                </motion.button>
-              </AnimatePresence>
 
               <AnimatePresence mode="wait" custom={direction}>
                 {activeId === "zeon" ? (
@@ -536,6 +520,35 @@ export function ZeonProductClient() {
                 )}
               </AnimatePresence>
             </div>
+          </div>
+
+          {/* Right Side Swipe Indicator & Arrow Button */}
+          <div
+            ref={swipeIndicatorRef}
+            className="pointer-events-auto absolute right-6 sm:right-10 lg:right-16 bottom-24 sm:bottom-32 lg:bottom-36 z-30 flex flex-col items-center gap-2 select-none will-change-transform"
+          >
+            <button
+              type="button"
+              onClick={toggleProduct}
+              className="group flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-black/15 bg-white text-[#0A0D0D] shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-300 hover:scale-110 hover:border-black hover:bg-[#0A0D0D] hover:text-white active:scale-95 cursor-pointer"
+              aria-label={activeId === "zeon" ? "Swipe left to view Scopus" : "Swipe right to view Zeon"}
+              title={activeId === "zeon" ? "Swipe left to view Scopus" : "Swipe right to view Zeon"}
+            >
+              <IconArrowLeft
+                className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 ${
+                  activeId === "zeon"
+                    ? "group-hover:-translate-x-0.5"
+                    : "rotate-180 group-hover:translate-x-0.5"
+                }`}
+              />
+            </button>
+            <button
+              type="button"
+              onClick={toggleProduct}
+              className="text-[10px] sm:text-[11px] font-medium tracking-[0.18em] uppercase text-[#727B7B] transition-colors hover:text-[#0A0D0D] cursor-pointer"
+            >
+              {activeId === "zeon" ? "swipe left" : "swipe right"}
+            </button>
           </div>
         </div>
       </div>

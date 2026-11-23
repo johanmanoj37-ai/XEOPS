@@ -64,6 +64,15 @@ export function IconArrowRight(props: IconProps) {
   );
 }
 
+export function IconArrowLeft(props: IconProps) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      <path d="M15.5 10H4.5" />
+      <path d="m9 5.5-4.5 4.5 4.5 4.5" />
+    </svg>
+  );
+}
+
 export function IconPlay(props: IconProps) {
   return (
     <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
