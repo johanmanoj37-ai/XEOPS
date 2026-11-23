@@ -67,7 +67,7 @@ export default function AboutPage() {
           {CO_FOUNDERS.map((founder) => (
             <div
               key={founder.email}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-[28px] border border-black/20 bg-gradient-to-b from-white via-white to-[#FAFAFA] p-7 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-black/50 hover:shadow-[0_20px_48px_-12px_rgba(0,0,0,0.1)] sm:p-8"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-[28px] border border-black/20 bg-gradient-to-b from-white via-white to-[#FAFAFA] p-7 shadow-[0_4px_24px_rgba(0,0,0,0.03)] sm:p-8"
             >
               {/* Subtle top specular hairline */}
               <div
@@ -78,15 +78,15 @@ export default function AboutPage() {
               {/* Watermark character in background */}
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute -right-2 -top-4 select-none font-serif text-8xl font-light text-black/[0.025] transition-opacity duration-300 group-hover:text-black/[0.045]"
+                className="pointer-events-none absolute -right-2 -top-4 select-none font-serif text-8xl font-light text-black/[0.025]"
               >
                 {founder.initials[0]}
               </span>
 
               <div>
                 {/* Avatar Badge */}
-                <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-black/15 bg-gradient-to-b from-black/[0.03] to-transparent shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] transition-all duration-300 group-hover:border-black group-hover:bg-[#0A0D0D] group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.14)]">
-                  <span className="font-serif text-xl font-normal tracking-wide text-[#0A0D0D] transition-colors duration-300 group-hover:text-white">
+                <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-black/15 bg-gradient-to-b from-black/[0.03] to-transparent shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
+                  <span className="font-serif text-xl font-normal tracking-wide text-[#0A0D0D]">
                     {founder.initials}
                   </span>
                 </div>
@@ -95,10 +95,9 @@ export default function AboutPage() {
                 <h2 className="mt-8 text-xl font-semibold tracking-tight text-[#0A0D0D] sm:text-2xl">
                   {founder.name}
                 </h2>
-                <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-full border border-black/15 bg-black/[0.03] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#4A5353]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#0A0D0D]" />
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#727B7B]">
                   {founder.role}
-                </div>
+                </p>
               </div>
 
               {/* Email Link Button */}
