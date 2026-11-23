@@ -473,8 +473,8 @@ export function ZeonProductClient() {
                   transition={{ duration: 0.25, ease: "easeInOut" }}
                   className={`group absolute top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-black/15 bg-white text-[#0A0D0D] shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all duration-300 hover:scale-110 hover:border-black hover:bg-black/5 active:scale-95 shrink-0 ${
                     activeId === "zeon"
-                      ? "left-[calc(100%+0.625rem)] sm:left-[calc(100%+2rem)] lg:left-[calc(100%+3.5rem)]"
-                      : "right-[calc(100%+0.625rem)] sm:right-[calc(100%+2rem)] lg:right-[calc(100%+3.5rem)]"
+                      ? "left-[calc(100%+1.5rem)] sm:left-[calc(100%+3rem)] md:left-[calc(100%+4rem)] lg:left-[calc(100%+5rem)] xl:left-[calc(100%+6.5rem)]"
+                      : "right-[calc(100%+1.5rem)] sm:right-[calc(100%+3.5rem)] md:right-[calc(100%+4.5rem)] lg:right-[calc(100%+6rem)] xl:right-[calc(100%+7.5rem)]"
                   }`}
                   aria-label={`Switch to ${otherProduct.displayName}`}
                   title={`Switch to ${otherProduct.displayName}`}
