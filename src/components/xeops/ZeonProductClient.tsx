@@ -589,35 +589,70 @@ export function ZeonProductClient() {
             </div>
           </div>
 
-          {/* Right Side Swipe Indicator & Arrow Button: Only on Above Screen */}
+          {/* Swipe Indicator & Arrow Button: Only on Above Screen (Right on Zeon, Left on Scopus) */}
           <div
             ref={swipeIndicatorRef}
-            className={`pointer-events-auto absolute right-6 sm:right-10 lg:right-16 bottom-24 sm:bottom-32 lg:bottom-36 z-30 flex flex-col items-center gap-2 select-none will-change-transform transition-all duration-300 ${
+            className={`pointer-events-none absolute inset-x-0 bottom-24 sm:bottom-32 lg:bottom-36 z-30 px-6 sm:px-10 lg:px-16 flex items-center select-none will-change-transform transition-all duration-300 ${
+              activeId === "zeon" ? "justify-end" : "justify-start"
+            } ${
               isScrolled ? "opacity-0 pointer-events-none invisible" : "opacity-100"
             }`}
           >
-            <button
-              type="button"
-              onClick={toggleProduct}
-              className="group flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-black/15 bg-white text-[#0A0D0D] shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-300 hover:scale-110 hover:border-black hover:bg-[#0A0D0D] hover:text-white active:scale-95 cursor-pointer"
-              aria-label={activeId === "zeon" ? "Swipe left to view Scopus" : "Swipe right to view Zeon"}
-              title={activeId === "zeon" ? "Swipe left to view Scopus" : "Swipe right to view Zeon"}
-            >
-              <IconArrowLeft
-                className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 ${
-                  activeId === "zeon"
-                    ? "group-hover:-translate-x-0.5"
-                    : "rotate-180 group-hover:translate-x-0.5"
-                }`}
-              />
-            </button>
-            <button
-              type="button"
-              onClick={toggleProduct}
-              className="text-[10px] sm:text-[11px] font-medium tracking-[0.18em] uppercase text-[#727B7B] transition-colors hover:text-[#0A0D0D] cursor-pointer"
-            >
-              {activeId === "zeon" ? "swipe left" : "swipe right"}
-            </button>
+            <AnimatePresence mode="wait">
+              {activeId === "zeon" ? (
+                <motion.div
+                  key="zeon-indicator"
+                  initial={{ opacity: 0, x: 15 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 15 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="pointer-events-auto flex flex-col items-center gap-2"
+                >
+                  <button
+                    type="button"
+                    onClick={toggleProduct}
+                    className="group flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-black/15 bg-white text-[#0A0D0D] shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-300 hover:scale-110 hover:border-black hover:bg-[#0A0D0D] hover:text-white active:scale-95 cursor-pointer"
+                    aria-label="Swipe left to view Scopus"
+                    title="Swipe left to view Scopus"
+                  >
+                    <IconArrowLeft className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:-translate-x-0.5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={toggleProduct}
+                    className="text-[10px] sm:text-[11px] font-medium tracking-[0.18em] uppercase text-[#727B7B] transition-colors hover:text-[#0A0D0D] cursor-pointer"
+                  >
+                    swipe left
+                  </button>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="scopus-indicator"
+                  initial={{ opacity: 0, x: -15 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -15 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="pointer-events-auto flex flex-col items-center gap-2"
+                >
+                  <button
+                    type="button"
+                    onClick={toggleProduct}
+                    className="group flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-black/15 bg-white text-[#0A0D0D] shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-300 hover:scale-110 hover:border-black hover:bg-[#0A0D0D] hover:text-white active:scale-95 cursor-pointer"
+                    aria-label="Swipe right to view Zeon"
+                    title="Swipe right to view Zeon"
+                  >
+                    <IconArrowRight className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={toggleProduct}
+                    className="text-[10px] sm:text-[11px] font-medium tracking-[0.18em] uppercase text-[#727B7B] transition-colors hover:text-[#0A0D0D] cursor-pointer"
+                  >
+                    swipe right
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>
